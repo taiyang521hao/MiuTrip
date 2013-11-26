@@ -54,6 +54,8 @@ typedef NS_OPTIONS(NSInteger, ButtonImageState){
 - (void)setBorderColor:(UIColor*)color width:(CGFloat)width;//设置边框
 - (void)setCornerRadius:(CGFloat)radius;
 
+- (void)createLineWithParam:(NSObject*)param frame:(CGRect)frame;
+
 @end
 
 @interface UIButton (UIButtonCustomMethod)

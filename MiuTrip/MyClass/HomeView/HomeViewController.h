@@ -36,6 +36,8 @@
 @property (strong, nonatomic) UILabel                   *position;
 @property (strong, nonatomic) UILabel                   *company;
 
+- (void)getLoginUserInfo;                                               //获取用户信息
+
 @end
 
 @interface HomeCustomBtn : UIView<BtnItemDelegate>

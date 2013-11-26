@@ -187,6 +187,22 @@
     }
 }
 
+
+- (void)createLineWithParam:(NSObject*)param frame:(CGRect)frame
+{
+    UIImageView *line = [[UIImageView alloc]initWithFrame:frame];
+    if ([param isKindOfClass:[UIColor class]]) {
+        UIColor *color = (UIColor*)param;
+        [line setBackgroundColor:color];
+        [line setAlpha:0.5];
+    }else if ([param isKindOfClass:[UIImage class]]){
+        UIImage *image = (UIImage*)param;
+        [line setImage:image];
+    }
+    [self addSubview:line];
+}
+
+
 @end
 
 @implementation UIButton (UIButtonCustomMethod)

@@ -178,6 +178,7 @@
 		12DDD836183B5C4E00E774AF /* set_sgitem_l_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 12DDD832183B5C4E00E774AF /* set_sgitem_l_select.png */; };
 		12DDD837183B5C4E00E774AF /* set_sgitem_r_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 12DDD833183B5C4E00E774AF /* set_sgitem_r_normal.png */; };
 		12DDD838183B5C4E00E774AF /* set_sgitem_r_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 12DDD834183B5C4E00E774AF /* set_sgitem_r_select.png */; };
+		1807C0B51844868800199E5D /* AirListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C0B41844868800199E5D /* AirListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,8 +209,8 @@
 		122BD73518406D2E00BAA9A9 /* shake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shake.png; sourceTree = "<group>"; };
 		122BD73618406D2E00BAA9A9 /* voice_btn_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voice_btn_press.png; sourceTree = "<group>"; };
 		122BD73718406D2E00BAA9A9 /* voice_btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voice_btn_normal.png; sourceTree = "<group>"; };
-		122CE5BA183A34D4001771DC /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		122CE5BB183A34D4001771DC /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		122CE5BA183A34D4001771DC /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = ../SettingViewController.h; sourceTree = "<group>"; };
+		122CE5BB183A34D4001771DC /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = ../SettingViewController.m; sourceTree = "<group>"; };
 		122CE5BE183A3AB5001771DC /* set_item_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_item_normal.png; sourceTree = "<group>"; };
 		122CE5BF183A3AB5001771DC /* set_item_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_item_select.png; sourceTree = "<group>"; };
 		122CE5C0183A3AB5001771DC /* set_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_location.png; sourceTree = "<group>"; };
@@ -307,8 +308,8 @@
 		12478A0118363B2800AA0083 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		12478A0318363B2F00AA0083 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		12478A0518363B4000AA0083 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		1253D4F51835C324004B595D /* CommonlyNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonlyNameViewController.h; sourceTree = "<group>"; };
-		1253D4F61835C324004B595D /* CommonlyNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonlyNameViewController.m; sourceTree = "<group>"; };
+		1253D4F51835C324004B595D /* CommonlyNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonlyNameViewController.h; path = ../CommonlyNameViewController.h; sourceTree = "<group>"; };
+		1253D4F61835C324004B595D /* CommonlyNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonlyNameViewController.m; path = ../CommonlyNameViewController.m; sourceTree = "<group>"; };
 		1253D5F01835D1E1004B595D /* bottombar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombar.png; sourceTree = "<group>"; };
 		1253D5F11835D1E1004B595D /* home_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_bg.png; sourceTree = "<group>"; };
 		1253D5F31835D1E1004B595D /* autolog_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = autolog_normal.png; sourceTree = "<group>"; };
@@ -414,6 +415,8 @@
 		12DDD832183B5C4E00E774AF /* set_sgitem_l_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_sgitem_l_select.png; sourceTree = "<group>"; };
 		12DDD833183B5C4E00E774AF /* set_sgitem_r_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_sgitem_r_normal.png; sourceTree = "<group>"; };
 		12DDD834183B5C4E00E774AF /* set_sgitem_r_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_sgitem_r_select.png; sourceTree = "<group>"; };
+		1807C0B31844868800199E5D /* AirListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirListViewController.h; sourceTree = "<group>"; };
+		1807C0B41844868800199E5D /* AirListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -490,12 +493,17 @@
 		12350A78183CFCBF00F9E8A7 /* ClassifyView */ = {
 			isa = PBXGroup;
 			children = (
+				1253D4F51835C324004B595D /* CommonlyNameViewController.h */,
+				1253D4F61835C324004B595D /* CommonlyNameViewController.m */,
+				122CE5BA183A34D4001771DC /* SettingViewController.h */,
+				122CE5BB183A34D4001771DC /* SettingViewController.m */,
 				12350A79183CFD5A00F9E8A7 /* TripCareerViewController.h */,
 				12350A7A183CFD5A00F9E8A7 /* TripCareerViewController.m */,
 				12835DA5183DB39500D97422 /* HotelAndAirOrderViewController.h */,
 				12835DA6183DB39500D97422 /* HotelAndAirOrderViewController.m */,
 				122BD72C1840659800BAA9A9 /* MyMiuViewController.h */,
 				122BD72D1840659800BAA9A9 /* MyMiuViewController.m */,
+				1807C0B21844866400199E5D /* AirQuery */,
 			);
 			name = ClassifyView;
 			path = HomeView/ClassifyView;
@@ -877,12 +885,17 @@
 				127915621833512700CF94F4 /* RegisterAndLogViewController.m */,
 				127915751833659D00CF94F4 /* HomeViewController.h */,
 				127915761833659D00CF94F4 /* HomeViewController.m */,
-				1253D4F51835C324004B595D /* CommonlyNameViewController.h */,
-				1253D4F61835C324004B595D /* CommonlyNameViewController.m */,
-				122CE5BA183A34D4001771DC /* SettingViewController.h */,
-				122CE5BB183A34D4001771DC /* SettingViewController.m */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		1807C0B21844866400199E5D /* AirQuery */ = {
+			isa = PBXGroup;
+			children = (
+				1807C0B31844868800199E5D /* AirListViewController.h */,
+				1807C0B41844868800199E5D /* AirListViewController.m */,
+			);
+			path = AirQuery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1115,6 +1128,7 @@
 				124789F81836363100AA0083 /* SBJsonStreamParserState.m in Sources */,
 				122BD721184057F100BAA9A9 /* HotelOrderDetailCell.m in Sources */,
 				124789FC1836363100AA0083 /* SBJsonTokeniser.m in Sources */,
+				1807C0B51844868800199E5D /* AirListViewController.m in Sources */,
 				124789F51836363100AA0083 /* SBJsonStreamParser.m in Sources */,
 				124789FB1836363100AA0083 /* SBJsonStreamWriterState.m in Sources */,
 				124789F21836363100AA0083 /* LoadingMoreTableFooterView.m in Sources */,
@@ -1195,7 +1209,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: QIAO HE (Y88572P6Z4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: QIAO HE (Y88572P6Z4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1234,7 +1248,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: QIAO HE (Y88572P6Z4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: QIAO HE (Y88572P6Z4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
