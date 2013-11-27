@@ -179,6 +179,7 @@
 		12DDD837183B5C4E00E774AF /* set_sgitem_r_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 12DDD833183B5C4E00E774AF /* set_sgitem_r_normal.png */; };
 		12DDD838183B5C4E00E774AF /* set_sgitem_r_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 12DDD834183B5C4E00E774AF /* set_sgitem_r_select.png */; };
 		1807C0B51844868800199E5D /* AirListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C0B41844868800199E5D /* AirListViewController.m */; };
+		183E48931845E2F9009F6C4E /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 183E48921845E2F9009F6C4E /* RequestManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -417,6 +418,8 @@
 		12DDD834183B5C4E00E774AF /* set_sgitem_r_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_sgitem_r_select.png; sourceTree = "<group>"; };
 		1807C0B31844868800199E5D /* AirListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirListViewController.h; sourceTree = "<group>"; };
 		1807C0B41844868800199E5D /* AirListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirListViewController.m; sourceTree = "<group>"; };
+		183E48911845E2F9009F6C4E /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
+		183E48921845E2F9009F6C4E /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -814,6 +817,7 @@
 		1279154B1833292700CF94F4 /* MyClass */ = {
 			isa = PBXGroup;
 			children = (
+				183E48901845E2DB009F6C4E /* RequestHandle */,
 				1279154C1833292700CF94F4 /* Element */,
 				127915531833292700CF94F4 /* Model */,
 				1279155D18334CE500CF94F4 /* HomeView */,
@@ -896,6 +900,15 @@
 				1807C0B41844868800199E5D /* AirListViewController.m */,
 			);
 			path = AirQuery;
+			sourceTree = "<group>";
+		};
+		183E48901845E2DB009F6C4E /* RequestHandle */ = {
+			isa = PBXGroup;
+			children = (
+				183E48911845E2F9009F6C4E /* RequestManager.h */,
+				183E48921845E2F9009F6C4E /* RequestManager.m */,
+			);
+			path = RequestHandle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1115,6 +1128,7 @@
 				1279155A1833292700CF94F4 /* Utils.m in Sources */,
 				124789E41836363100AA0083 /* ASIFormDataRequest.m in Sources */,
 				124789F91836363100AA0083 /* SBJsonStreamWriter.m in Sources */,
+				183E48931845E2F9009F6C4E /* RequestManager.m in Sources */,
 				124789FA1836363100AA0083 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				12C37DC2183DD5FF00EA6D26 /* CustomMethod.m in Sources */,
 				1253D4F71835C324004B595D /* CommonlyNameViewController.m in Sources */,

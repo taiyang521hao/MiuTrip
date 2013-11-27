@@ -7,6 +7,7 @@
 //
 
 #import "BaseUIViewController.h"
+#import "RegisterAndLogViewController.h"
 
 @interface BaseUIViewController ()
 
@@ -32,7 +33,7 @@
     if (self) {
         _contentView = [[BaseContentView alloc]initWithFrame:appBounds];
         [_contentView setSuperResponder:self];
-        [_contentView setHidden:YES];
+        //[_contentView setHidden:YES];
         [self.view addSubview:_contentView];
 
         [self superViewInit];
@@ -344,6 +345,7 @@
         }
         
         [request setPostValue:[params JSONRepresentation] forKey:@"Json"];
+        NSLog(@"params json = %@",[params JSONRepresentation]);
         [request setDelegate:self];
         
         [request setTimeOutSeconds:30];
@@ -450,7 +452,11 @@
 - (void)popToMainViewControllerTransitionType:(TransitionType)_transitionType completionHandler:(void (^) (void))_compleHandler
 {
     if (self.navigationController) {
-        [self.navigationController popToViewController:[Model shareModel].mainView animated:NO];
+        if (![Model shareModel].mainView) {
+            [Model shareModel].mainView = [[RegisterAndLogViewController alloc]init];
+            [self.navigationController pushViewController:[Model shareModel].mainView animated:YES];
+        }else
+            [self.navigationController popToViewController:[Model shareModel].mainView animated:YES];
         CATransition *transition = [Utils getAnimation:_transitionType subType:DirectionLeft];
         [self.navigationController.view.layer addAnimation:transition forKey:@"viewtransition"];
         [self performSelector:@selector(completionHandler:) withObject:_compleHandler afterDelay:transitionDuration];
@@ -486,7 +492,7 @@
     if ([param isKindOfClass:[UIColor class]]) {
         UIColor *color = (UIColor*)param;
         [line setBackgroundColor:color];
-        [line setAlpha:0.5];
+        //[line setAlpha:0.5];
     }else if ([param isKindOfClass:[UIImage class]]){
         UIImage *image = (UIImage*)param;
         [line setImage:image];

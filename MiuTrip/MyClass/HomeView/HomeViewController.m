@@ -76,7 +76,10 @@
 
 - (void)getLoginUserInfo
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/getLoginUserInfo/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetUserLoginInfo/api"];
+//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+//                            <#(id), ...#>, nil]
+    NSLog(@"url = %@",urlString);
     [self sendRequestWithURL:urlString params:nil requestMethod:RequestPost userInfo:nil];
 }
 
@@ -94,7 +97,7 @@
 {
     NSLog(@"token = %@",[UserDefaults shareUserDefault].authTkn);
     [[Model shareModel] showPromptText:@"注销成功" model:YES];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self popToMainViewControllerTransitionType:TransitionPush completionHandler:Nil];
 }
 
 - (void)requestError:(ASIHTTPRequest *)request
@@ -282,6 +285,7 @@
     [segmentedControl setAlpha:0.1];
     [self.view addSubview:segmentedControl];
     
+//    [self getLoginUserInfo];
     [self setSubjoinViewFrame];
 }
 
@@ -603,6 +607,7 @@
 - (void)pressHotelItemDone:(UIButton*)sender
 {
     NSLog(@"sender tag = %d",sender.tag);
+    NSLog(@"user authTkn = %@",[UserDefaults shareUserDefault].authTkn);
 }
 
 - (UIImageView*)createLineWithFrame:(CGRect)frame

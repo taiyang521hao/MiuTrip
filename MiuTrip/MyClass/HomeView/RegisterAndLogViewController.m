@@ -114,7 +114,7 @@
     CGAffineTransform uNewTransform = CGAffineTransformScale(uCurrentTransform, 0.65, 0.65);
     [unameLeftView setTransform:uNewTransform];
     [_userName setPlaceholder:@"帐号/手机号"];
-    [_userName setText:@"13918776746"];
+    [_userName setText:@"15000609705"];
     [_userName setBackground:imageNameAndType(@"log_text_bg", nil)];
     [self.contentView addSubview:_userName];
     
@@ -131,7 +131,7 @@
     CGAffineTransform pNewTransform = CGAffineTransformScale(pCurrentTransform, 0.65, 0.65);
     [pwordLeftView setTransform:pNewTransform];
     [_passWord setPlaceholder:@"帐号/手机号"];
-    [_passWord setText:@"111111"];
+    [_passWord setText:@"w5998991"];
     [_passWord setSecureTextEntry:YES];
     [_passWord setBackground:imageNameAndType(@"log_text_bg", nil)];
     [self.contentView addSubview:_passWord];
