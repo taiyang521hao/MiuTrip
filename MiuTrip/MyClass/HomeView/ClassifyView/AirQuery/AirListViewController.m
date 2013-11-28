@@ -250,8 +250,8 @@
 {
     _unfoldView = [[UIView alloc]initWithFrame:CGRectMake(0, AirListViewCellHeight, appFrame.size.width, AirListViewSubjoinCellHeight * [param count])];
     for (int i = 0;i<4;i++) {
-        NSObject *object = [param objectAtIndex:i];
-        AirListViewSubjoinCell *subjoinCell = [[AirListViewSubjoinCell alloc]initWithFrame:CGRectMake(0, AirListViewSubjoinCellHeight * i, appFrame.size.height, AirListViewSubjoinCellHeight)];
+//        NSObject *object = [param objectAtIndex:i];
+//        AirListViewSubjoinCell *subjoinCell = [[AirListViewSubjoinCell alloc]initWithFrame:CGRectMake(0, AirListViewSubjoinCellHeight * i, appFrame.size.height, AirListViewSubjoinCellHeight)];
     }
 }
 

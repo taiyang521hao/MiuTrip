@@ -9,16 +9,16 @@
 #import "UserDefaults.h"
 #import "Model.h"
 #import "Utils.h"
+#import "LoginInfoDTO.h"
 
 static UserDefaults *shareUserDefault;
 
 @implementation UserDefaults
 
+@synthesize loginInfo;
+
 @synthesize userName;
 @synthesize passWord;
-@synthesize userId;
-@synthesize cookie;
-@synthesize realName;
 @synthesize mobile;
 @synthesize email;
 @synthesize sex;
@@ -59,17 +59,48 @@ static UserDefaults *shareUserDefault;
 
 - (void)clearDefaults
 {
-    [self setUserId:nil];
     [self setPassWord:nil];
     [self setUserName:nil];
-    [self setCookie:nil];
-    [self setRealName:nil];
     [self setMobile:nil];
     [self setEmail:nil];
     [self setSex:nil];
     [self setGetUserInfo:NO];
     
     [self setAuthTkn:nil];
+    [self setLoginInfo:Nil];
+}
+
+- (void)setLoginInfo:(LoginInfoDTO *)_loginInfo
+{
+    
+    if (loginInfo != _loginInfo) {
+        @try {
+            [[NSUserDefaults standardUserDefaults] setObject:_loginInfo forKey:@"loginInfo"];
+            loginInfo = _loginInfo;
+        }
+        @catch (NSException *exception) {
+            [[Model shareModel] showPromptText:[NSString stringWithFormat:@"set 异常:%@\n异常原因:%@",exception.name,exception.reason] model:YES];
+            NSLog(@"exception = %@",[NSString stringWithFormat:@"set 异常:%@\n异常原因:%@",exception.name,exception.reason]);
+        }
+        @finally {
+            
+        }
+    }
+}
+
+- (LoginInfoDTO *)loginInfo
+{
+    LoginInfoDTO *loginfo = nil;
+    @try {
+        loginfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginInfo"];
+    }
+    @catch (NSException *exception) {
+        [[Model shareModel] showPromptText:[NSString stringWithFormat:@"get 异常:%@\n异常原因:%@",exception.name,exception.reason] model:YES];
+    }
+    @finally {
+        
+    }
+    return loginfo;
 }
 
 - (void)setReserveObject:(NSInteger)_reserveObject

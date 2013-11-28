@@ -74,35 +74,28 @@
     return self;
 }
 
-- (void)getLoginUserInfo
+- (void)getUserLoginInfo
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetUserLoginInfo/api"];
-//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-//                            <#(id), ...#>, nil]
-    NSLog(@"url = %@",urlString);
-    [self sendRequestWithURL:urlString params:nil requestMethod:RequestPost userInfo:nil];
+    [self.requestManager getUserLoginInfo];
 }
 
 - (void)logOff:(UIButton*)sender
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/logout/api"];
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                              @"RequestLogOut",          @"requestType",
-                              nil];
-    [self sendRequestWithURL:urlString params:nil requestMethod:RequestLogOut userInfo:userInfo];
+    [self.requestManager logOut];
 }
 
 #pragma mark - request handle
-- (void)requestDone:(ASIHTTPRequest *)request
+- (void)logOutDone
 {
-    NSLog(@"token = %@",[UserDefaults shareUserDefault].authTkn);
     [[Model shareModel] showPromptText:@"注销成功" model:YES];
-    [self popToMainViewControllerTransitionType:TransitionPush completionHandler:Nil];
+    [self popViewControllerTransitionType:TransitionPush completionHandler:nil];
 }
 
-- (void)requestError:(ASIHTTPRequest *)request
+- (void)getUserLoginInfoDone:(LoginInfoDTO*)loginInfo
 {
-    
+    [_userName setText:loginInfo.UserName];
+    [_position setText:[Utils nilToEmpty:loginInfo.DeptName]];
+    [_company setText:[Utils nilToEmpty:loginInfo.CorpName]];
 }
 
 - (void)pressSubitem:(UIButton*)sender
@@ -218,21 +211,22 @@
     [_userName setBackgroundColor:color(clearColor)];
     [_userName setFont:[UIFont boldSystemFontOfSize:14]];
     [_userName setTextColor:color(whiteColor)];
-    [_userName setText:@"大豆"];
+    [_userName setText:[UserDefaults shareUserDefault].loginInfo.UserName];
     [self.view addSubview:_userName];
     
     _position = [[UILabel alloc]initWithFrame:CGRectMake(controlXLength(_userName), _userName.frame.origin.y, _userName.frame.size.width, _userName.frame.size.height)];
     [_position setBackgroundColor:color(clearColor)];
     [_position setFont:[UIFont systemFontOfSize:12]];
     [_position setTextColor:color(whiteColor)];
-    [_position setText:@"卖鱼的"];
+    [_position setText:[UserDefaults shareUserDefault].loginInfo.DeptName];
     [self.view addSubview:_position];
     
     _company = [[UILabel alloc]initWithFrame:CGRectMake(_userName.frame.origin.x, controlYLength(_userName), _userName.frame.size.width * 2, _userName.frame.size.height)];
     [_company setBackgroundColor:color(clearColor)];
     [_company setFont:[UIFont systemFontOfSize:12]];
     [_company setTextColor:color(whiteColor)];
-    [_company setText:@"村头菜市场"];
+    [_company setAutoSize:YES];
+    [_company setText:[UserDefaults shareUserDefault].loginInfo.CorpName];
     [self.view addSubview:_company];
     
     UIButton *inlandBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -892,9 +886,9 @@
 - (void)pressAirItemDone:(UIButton*)sender
 {
     NSLog(@"btn tag = %d",sender.tag);
-    
-    AirListViewController *airListView = [[AirListViewController alloc]init];
-    [self pushViewController:airListView transitionType:TransitionPush completionHandler:Nil];
+    [self.requestManager getUserLoginInfo];
+//    AirListViewController *airListView = [[AirListViewController alloc]init];
+//    [self pushViewController:airListView transitionType:TransitionPush completionHandler:Nil];
 }
 
 - (void)pressMoreConditionBtn:(UIButton*)sender

@@ -180,6 +180,17 @@
 		12DDD838183B5C4E00E774AF /* set_sgitem_r_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 12DDD834183B5C4E00E774AF /* set_sgitem_r_select.png */; };
 		1807C0B51844868800199E5D /* AirListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C0B41844868800199E5D /* AirListViewController.m */; };
 		183E48931845E2F9009F6C4E /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 183E48921845E2F9009F6C4E /* RequestManager.m */; };
+		18B4734E1846DF48003FF7AD /* LoginInfoDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4734D1846DF48003FF7AD /* LoginInfoDTO.m */; };
+		18B473511846E977003FF7AD /* TravelLifeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B473501846E977003FF7AD /* TravelLifeInfo.m */; };
+		18B473541846EB84003FF7AD /* BookPassengersDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B473531846EB84003FF7AD /* BookPassengersDTO.m */; };
+		18B473571846F5A2003FF7AD /* CorpServerCardDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B473561846F5A2003FF7AD /* CorpServerCardDTO.m */; };
+		18B4735A1846F74D003FF7AD /* CorpStaffDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B473591846F74D003FF7AD /* CorpStaffDTO.m */; };
+		18B4735D1846F9A5003FF7AD /* CorpUserBaseInfoDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4735C1846F9A5003FF7AD /* CorpUserBaseInfoDTO.m */; };
+		18B473601846FC7A003FF7AD /* CorpPolicyDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4735F1846FC7A003FF7AD /* CorpPolicyDTO.m */; };
+		18B47363184700F3003FF7AD /* CorpCostCenterDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B47362184700F3003FF7AD /* CorpCostCenterDTO.m */; };
+		18B473661847062C003FF7AD /* MemberDeliverDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B473651847062C003FF7AD /* MemberDeliverDTO.m */; };
+		18B47368184731AB003FF7AD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B47367184731AB003FF7AD /* libicucore.dylib */; };
+		18B4736C184731DC003FF7AD /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4736B184731DC003FF7AD /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -420,6 +431,27 @@
 		1807C0B41844868800199E5D /* AirListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirListViewController.m; sourceTree = "<group>"; };
 		183E48911845E2F9009F6C4E /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
 		183E48921845E2F9009F6C4E /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
+		18B4734C1846DF48003FF7AD /* LoginInfoDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInfoDTO.h; sourceTree = "<group>"; };
+		18B4734D1846DF48003FF7AD /* LoginInfoDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInfoDTO.m; sourceTree = "<group>"; };
+		18B4734F1846E977003FF7AD /* TravelLifeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelLifeInfo.h; sourceTree = "<group>"; };
+		18B473501846E977003FF7AD /* TravelLifeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelLifeInfo.m; sourceTree = "<group>"; };
+		18B473521846EB84003FF7AD /* BookPassengersDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookPassengersDTO.h; sourceTree = "<group>"; };
+		18B473531846EB84003FF7AD /* BookPassengersDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookPassengersDTO.m; sourceTree = "<group>"; };
+		18B473551846F5A2003FF7AD /* CorpServerCardDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorpServerCardDTO.h; sourceTree = "<group>"; };
+		18B473561846F5A2003FF7AD /* CorpServerCardDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorpServerCardDTO.m; sourceTree = "<group>"; };
+		18B473581846F74D003FF7AD /* CorpStaffDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorpStaffDTO.h; sourceTree = "<group>"; };
+		18B473591846F74D003FF7AD /* CorpStaffDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorpStaffDTO.m; sourceTree = "<group>"; };
+		18B4735B1846F9A5003FF7AD /* CorpUserBaseInfoDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorpUserBaseInfoDTO.h; sourceTree = "<group>"; };
+		18B4735C1846F9A5003FF7AD /* CorpUserBaseInfoDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorpUserBaseInfoDTO.m; sourceTree = "<group>"; };
+		18B4735E1846FC7A003FF7AD /* CorpPolicyDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorpPolicyDTO.h; sourceTree = "<group>"; };
+		18B4735F1846FC7A003FF7AD /* CorpPolicyDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorpPolicyDTO.m; sourceTree = "<group>"; };
+		18B47361184700F3003FF7AD /* CorpCostCenterDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorpCostCenterDTO.h; sourceTree = "<group>"; };
+		18B47362184700F3003FF7AD /* CorpCostCenterDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorpCostCenterDTO.m; sourceTree = "<group>"; };
+		18B473641847062C003FF7AD /* MemberDeliverDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberDeliverDTO.h; sourceTree = "<group>"; };
+		18B473651847062C003FF7AD /* MemberDeliverDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberDeliverDTO.m; sourceTree = "<group>"; };
+		18B47367184731AB003FF7AD /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		18B4736A184731DC003FF7AD /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		18B4736B184731DC003FF7AD /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,6 +459,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B47368184731AB003FF7AD /* libicucore.dylib in Frameworks */,
 				12478A0618363B4000AA0083 /* libz.dylib in Frameworks */,
 				1279151B183326B700CF94F4 /* CoreGraphics.framework in Frameworks */,
 				12478A0418363B2F00AA0083 /* MobileCoreServices.framework in Frameworks */,
@@ -751,6 +784,7 @@
 		12791517183326B700CF94F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18B47367184731AB003FF7AD /* libicucore.dylib */,
 				12478A0518363B4000AA0083 /* libz.dylib */,
 				12478A0318363B2F00AA0083 /* MobileCoreServices.framework */,
 				12478A0118363B2800AA0083 /* SystemConfiguration.framework */,
@@ -806,6 +840,7 @@
 		1279154A1833292700CF94F4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				18B47369184731DC003FF7AD /* RegexKitLite */,
 				124789A01836363000AA0083 /* ASIHttpRequest */,
 				124789B81836363000AA0083 /* EGORefireshTableHeader */,
 				124789C61836363000AA0083 /* SBJson */,
@@ -862,6 +897,24 @@
 				122BD71D184057B800BAA9A9 /* AirOrderDetailCell.m */,
 				122BD71F184057F100BAA9A9 /* HotelOrderDetailCell.h */,
 				122BD720184057F100BAA9A9 /* HotelOrderDetailCell.m */,
+				18B4734C1846DF48003FF7AD /* LoginInfoDTO.h */,
+				18B4734D1846DF48003FF7AD /* LoginInfoDTO.m */,
+				18B4734F1846E977003FF7AD /* TravelLifeInfo.h */,
+				18B473501846E977003FF7AD /* TravelLifeInfo.m */,
+				18B473521846EB84003FF7AD /* BookPassengersDTO.h */,
+				18B473531846EB84003FF7AD /* BookPassengersDTO.m */,
+				18B473551846F5A2003FF7AD /* CorpServerCardDTO.h */,
+				18B473561846F5A2003FF7AD /* CorpServerCardDTO.m */,
+				18B473581846F74D003FF7AD /* CorpStaffDTO.h */,
+				18B473591846F74D003FF7AD /* CorpStaffDTO.m */,
+				18B4735B1846F9A5003FF7AD /* CorpUserBaseInfoDTO.h */,
+				18B4735C1846F9A5003FF7AD /* CorpUserBaseInfoDTO.m */,
+				18B4735E1846FC7A003FF7AD /* CorpPolicyDTO.h */,
+				18B4735F1846FC7A003FF7AD /* CorpPolicyDTO.m */,
+				18B47361184700F3003FF7AD /* CorpCostCenterDTO.h */,
+				18B47362184700F3003FF7AD /* CorpCostCenterDTO.m */,
+				18B473641847062C003FF7AD /* MemberDeliverDTO.h */,
+				18B473651847062C003FF7AD /* MemberDeliverDTO.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -909,6 +962,15 @@
 				183E48921845E2F9009F6C4E /* RequestManager.m */,
 			);
 			path = RequestHandle;
+			sourceTree = "<group>";
+		};
+		18B47369184731DC003FF7AD /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				18B4736A184731DC003FF7AD /* RegexKitLite.h */,
+				18B4736B184731DC003FF7AD /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1119,10 +1181,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				127915571833292700CF94F4 /* DatePickerViewController.m in Sources */,
+				18B473601846FC7A003FF7AD /* CorpPolicyDTO.m in Sources */,
 				124789E21836363100AA0083 /* ASIDataDecompressor.m in Sources */,
+				18B4735D1846F9A5003FF7AD /* CorpUserBaseInfoDTO.m in Sources */,
+				18B473511846E977003FF7AD /* TravelLifeInfo.m in Sources */,
 				122BD71E184057B800BAA9A9 /* AirOrderDetailCell.m in Sources */,
 				122CE5BC183A34D4001771DC /* SettingViewController.m in Sources */,
 				12791529183326B700CF94F4 /* AppDelegate.m in Sources */,
+				18B4734E1846DF48003FF7AD /* LoginInfoDTO.m in Sources */,
 				124789E11836363100AA0083 /* ASIDataCompressor.m in Sources */,
 				127915631833512700CF94F4 /* RegisterAndLogViewController.m in Sources */,
 				1279155A1833292700CF94F4 /* Utils.m in Sources */,
@@ -1130,7 +1196,9 @@
 				124789F91836363100AA0083 /* SBJsonStreamWriter.m in Sources */,
 				183E48931845E2F9009F6C4E /* RequestManager.m in Sources */,
 				124789FA1836363100AA0083 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				18B473571846F5A2003FF7AD /* CorpServerCardDTO.m in Sources */,
 				12C37DC2183DD5FF00EA6D26 /* CustomMethod.m in Sources */,
+				18B4735A1846F74D003FF7AD /* CorpStaffDTO.m in Sources */,
 				1253D4F71835C324004B595D /* CommonlyNameViewController.m in Sources */,
 				124789E71836363100AA0083 /* ASINetworkQueue.m in Sources */,
 				124789FD1836363100AA0083 /* SBJsonUTF8Stream.m in Sources */,
@@ -1139,8 +1207,11 @@
 				124789F71836363100AA0083 /* SBJsonStreamParserAdapter.m in Sources */,
 				124789F61836363100AA0083 /* SBJsonStreamParserAccumulator.m in Sources */,
 				122BD72E1840659800BAA9A9 /* MyMiuViewController.m in Sources */,
+				18B473541846EB84003FF7AD /* BookPassengersDTO.m in Sources */,
 				124789F81836363100AA0083 /* SBJsonStreamParserState.m in Sources */,
+				18B47363184700F3003FF7AD /* CorpCostCenterDTO.m in Sources */,
 				122BD721184057F100BAA9A9 /* HotelOrderDetailCell.m in Sources */,
+				18B473661847062C003FF7AD /* MemberDeliverDTO.m in Sources */,
 				124789FC1836363100AA0083 /* SBJsonTokeniser.m in Sources */,
 				1807C0B51844868800199E5D /* AirListViewController.m in Sources */,
 				124789F51836363100AA0083 /* SBJsonStreamParser.m in Sources */,
@@ -1154,6 +1225,7 @@
 				1279156018334D1400CF94F4 /* BaseUIViewController.m in Sources */,
 				12791525183326B700CF94F4 /* main.m in Sources */,
 				124789F31836363100AA0083 /* NSObject+SBJson.m in Sources */,
+				18B4736C184731DC003FF7AD /* RegexKitLite.m in Sources */,
 				12835DA7183DB39500D97422 /* HotelAndAirOrderViewController.m in Sources */,
 				124789FE1836363100AA0083 /* SBJsonWriter.m in Sources */,
 				124789E31836363100AA0083 /* ASIDownloadCache.m in Sources */,

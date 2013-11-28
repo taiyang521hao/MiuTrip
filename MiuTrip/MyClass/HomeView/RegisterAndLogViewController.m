@@ -41,32 +41,22 @@
     }else if (sender.tag == 101){
         
     }else if (sender.tag == 104){
-        NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/login/api"];
         NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                                 self.userName.text,                 @"username",
                                 self.passWord.text,                 @"password",
                                 nil];
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  @"RequestLogIn",          @"requestType",
-                                  nil];
-        NSLog(@"url = %@,params = %@",urlString,params);
-        [self sendRequestWithURL:urlString params:params requestMethod:RequestLogIn userInfo:userInfo];
+        [self.requestManager logIn:params];
+        [[Model shareModel] setUserInteractionEnabled:NO];
     }
 }
 
 #pragma mark - request handle
-- (void)requestDone:(ASIHTTPRequest *)request
+- (void)logInDone
 {
-    [[Model shareModel] showPromptText:@"登陆成功" model:YES];
+    [[Model shareModel] setUserInteractionEnabled:YES];
     HomeViewController *homeView = [[HomeViewController alloc]init];
-    [self pushViewController:homeView transitionType:TransitionPush completionHandler:^{
-        [homeView getLoginUserInfo];
-    }];
-}
-
-- (void)requestError:(ASIHTTPRequest *)request
-{
-    
+    [[Model shareModel] showPromptText:@"登陆成功" model:YES];
+    [self pushViewController:homeView transitionType:TransitionPush completionHandler:nil];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

@@ -13,12 +13,14 @@
 #import "ASINetworkQueue.h"
 #import "UserDefaults.h"
 #import "Utils.h"
+#import "Model.h"
+#import "AppDelegate.h"
 
 @implementation RequestManager
 
 - (void)logIn:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/login/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/login/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               LogIn,            @"requestType",
                               nil];
@@ -27,25 +29,25 @@
 
 - (void)logOut
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/logout/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/logout/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               Logout,            @"requestType",
                               nil];
     [self sendRequestWithURL:urlString params:nil userInfo:userInfo];
 }
 
-- (void)getLoginUserInfo:(NSDictionary*)params
+- (void)getUserLoginInfo
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/GetLoginUserInfo/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetUserLoginInfo/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                              GetLoginUserInfo,            @"requestType",
+                              GetUserLoginInfo,            @"requestType",
                               nil];
     [self sendRequestWithURL:urlString params:nil userInfo:userInfo];
 }
 
 - (void)getTravelLifeInfo
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/GetTravelLifeInfo/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetTravelLifeInfo/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               GetTravelLifeInfo,           @"requestType",
                               nil];
@@ -54,7 +56,7 @@
 
 - (void)changePassword:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/ChangePassword/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/ChangePassword/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               ChangePassword,            @"requestType",
                               nil];
@@ -63,7 +65,7 @@
 
 - (void)getContact:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/GetContact/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetContact/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               GetContact,            @"requestType",
                               nil];
@@ -72,7 +74,7 @@
 
 - (void)deleteMemberPassenger:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/DeleteMemberPassenger/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/DeleteMemberPassenger/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               DeleteMemberPassenger,            @"requestType",
                               nil];
@@ -81,7 +83,7 @@
 
 - (void)getCorpServerCardList:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/GetCorpServerCardList/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetCorpServerCardList/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               GetCorpServerCardList,            @"requestType",
                               nil];
@@ -90,7 +92,7 @@
 
 - (void)searchPassengers:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/SearchPassengers/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/SearchPassengers/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               SearchPassengers,            @"requestType",
                               nil];
@@ -99,7 +101,7 @@
 
 - (void)getCorpStaff:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/GetCorpStaff/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetCorpStaff/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               GetCorpStaff,            @"requestType",
                               nil];
@@ -108,7 +110,7 @@
 
 - (void)getCorpUserBaseInfo:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/GetCorpUserBaseInfo/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetCorpUserBaseInfo/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               GetCorpUserBaseInfo,            @"requestType",
                               nil];
@@ -117,7 +119,7 @@
 
 - (void)getCorpPolicy:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/GetCorpPolicy/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetCorpPolicy/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               GetCorpPolicy,            @"requestType",
                               nil];
@@ -126,7 +128,7 @@
 
 - (void)getCorpCost:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/GetCorpCost/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetCorpCost/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               GetCorpCost,            @"requestType",
                               nil];
@@ -135,7 +137,7 @@
 
 - (void)getCorpInfo:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/GetCorpInfo/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetCorpInfo/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               GetCorpInfo,            @"requestType",
                               nil];
@@ -144,7 +146,7 @@
 
 - (void)getMemberDeliverList:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/GetMemberDeliverList/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetMemberDeliverList/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               GetMemberDeliverList,            @"requestType",
                               nil];
@@ -153,7 +155,7 @@
 
 - (void)deleteMemberDeliver:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/DeleteMemberDeliver/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/DeleteMemberDeliver/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               DeleteMemberDeliver,            @"requestType",
                               nil];
@@ -162,7 +164,7 @@
 
 - (void)deleteDeliver:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/DeleteDeliver/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/DeleteDeliver/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               DeleteDeliver,            @"requestType",
                               nil];
@@ -171,7 +173,7 @@
 
 - (void)savePassengerList:(NSDictionary*)params
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account/SavePassengerList/api"];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/SavePassengerList/api"];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               SavePassengerList,            @"requestType",
                               nil];
@@ -183,7 +185,6 @@
     NSString *requestType = [userInfo objectForKey:@"requestType"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:URLString]];
     [request setUserInfo:userInfo];
-//    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:_params];
     NSMutableDictionary *params = nil;
     if (_params) {
         params = [NSMutableDictionary dictionaryWithDictionary:_params];
@@ -193,7 +194,7 @@
     [params setObject:deviceId forKey:@"deviceId"];
     [params setObject:@"0" forKey:@"appId"];
     [params setObject:[Utils stringWithDate:[NSDate date] withFormat:@"yyyy-MM-dd HH:mm:ss"] forKey:@"processTime"];
-    if ([requestType isEqualToString:LogIn]) {
+    if (![requestType isEqualToString:LogIn]) {
         if ([UserDefaults shareUserDefault].authTkn) {
             [params setObject:[UserDefaults shareUserDefault].authTkn forKey:@"authTkn"];
         }
@@ -209,12 +210,61 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    
+    NSString *requestType = [request.userInfo objectForKey:@"requestType"];
+    NSLog(@"responseString = %@",[request.responseString JSONValue]);
+    NSDictionary *dic = [request.responseString JSONValue];
+    if ([[dic objectForKey:@"process_status"] isEqualToString:@"0"]) {
+        if ([requestType isEqualToString:LogIn]) {
+            [UserDefaults shareUserDefault].authTkn = [dic objectForKey:@"authTkn"];
+            [self.delegate logInDone];
+        }else if ([requestType isEqualToString:Logout]){
+            [[UserDefaults shareUserDefault] clearDefaults];
+            [self.delegate logOutDone];
+        }else if ([requestType isEqualToString:GetUserLoginInfo]){
+            [UserDefaults shareUserDefault].loginInfo = [[LoginInfoDTO alloc]initWithData:dic];
+            [self.delegate getUserLoginInfoDone:[UserDefaults shareUserDefault].loginInfo];
+        }else if ([requestType isEqualToString:GetTravelLifeInfo]){
+            
+        }else if ([requestType isEqualToString:ChangePassword]){
+            
+        }else if ([requestType isEqualToString:GetContact]){
+            
+        }else if ([requestType isEqualToString:DeleteMemberPassenger]){
+            
+        }else if ([requestType isEqualToString:GetCorpServerCardList]){
+            
+        }else if ([requestType isEqualToString:SearchPassengers]){
+            
+        }else if ([requestType isEqualToString:GetCorpStaff]){
+            
+        }else if ([requestType isEqualToString:GetCorpUserBaseInfo]){
+            
+        }else if ([requestType isEqualToString:GetCorpPolicy]){
+            
+        }else if ([requestType isEqualToString:GetCorpCost]){
+            
+        }else if ([requestType isEqualToString:GetCorpInfo]){
+            
+        }else if ([requestType isEqualToString:GetMemberDeliverList]){
+            
+        }else if ([requestType isEqualToString:DeleteMemberDeliver]){
+            
+        }else if ([requestType isEqualToString:DeleteDeliver]){
+            
+        }else if ([requestType isEqualToString:SavePassengerList]){
+            
+        }else{
+            [self.delegate requestDone:request];
+        }
+    }else{
+        [[Model shareModel] showPromptText:[NSString stringWithFormat:@"%@\n错误码%@",[dic objectForKey:@"errorMessage"],[dic objectForKey:@"errorCode"]] model:YES];
+    }
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    
+    [[Model shareModel] showPromptText:@"请求失败" model:YES];
+    [self.delegate requestError:request];
 }
 
 

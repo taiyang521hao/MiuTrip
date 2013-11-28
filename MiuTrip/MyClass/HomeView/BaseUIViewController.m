@@ -8,6 +8,7 @@
 
 #import "BaseUIViewController.h"
 #import "RegisterAndLogViewController.h"
+#import "AppDelegate.h"
 
 @interface BaseUIViewController ()
 
@@ -34,6 +35,8 @@
         _contentView = [[BaseContentView alloc]initWithFrame:appBounds];
         [_contentView setSuperResponder:self];
         //[_contentView setHidden:YES];
+        _requestManager = [[RequestManager alloc]init];
+        [_requestManager setDelegate:self];
         [self.view addSubview:_contentView];
 
         [self superViewInit];
@@ -175,7 +178,25 @@
     if (self.navigationController) {
         [self.navigationController popViewControllerAnimated:YES];
     }else{
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:^{
+            AppDelegate *appDelegate = (AppDelegate*)[UIApplication  sharedApplication].delegate;
+            if (deviceVersion >= 7.0) {
+                UIViewController *viewController = nil;
+                if (appDelegate.window.rootViewController.presentedViewController) {
+                    viewController = appDelegate.window.rootViewController.presentedViewController;
+                }else{
+                    viewController = appDelegate.window.rootViewController;
+                }
+                CGAffineTransform currentTransform = appDelegate.window.transform;
+                CGAffineTransform newTransform = CGAffineTransformScale(currentTransform, 1, (appFrame.size.height - 20)/appFrame.size.height);
+                [viewController.view.layer setAnchorPoint:CGPointMake(0.5f, 1.0f)];
+                
+                [viewController.view setFrame:CGRectMake(0, 0, viewController.view.frame.size.width, viewController.view.frame.size.height)];
+                [UIView animateWithDuration:0.25 animations:^{
+                    [viewController.view setTransform:newTransform];
+                }];
+            }
+        }];
     }
 }
 
@@ -333,12 +354,6 @@
         [params setObject:@"0" forKey:@"appId"];
         [params setObject:[Utils stringWithDate:[NSDate date] withFormat:@"yyyy-MM-dd HH:mm:ss"] forKey:@"processTime"];
         if (requestType != RequestLogIn) {
-            if ([UserDefaults shareUserDefault].cookie) {
-                NSMutableDictionary *cookie = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                               [Utils NULLToEmpty:[UserDefaults shareUserDefault].cookie],  @"Cookie",
-                                               nil];
-                [request setRequestHeaders:cookie];
-            }
             if ([UserDefaults shareUserDefault].authTkn) {
                 [params setObject:[UserDefaults shareUserDefault].authTkn forKey:@"authTkn"];
             }
@@ -386,6 +401,7 @@
     }else{
         [[Model shareModel] showPromptText:[NSString stringWithFormat:@"%@\n错误码%@",[dic objectForKey:@"errorMessage"],[dic objectForKey:@"errorCode"]] model:YES];
     }
+    [self.view setUserInteractionEnabled:YES];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request
 {

@@ -17,12 +17,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     NSLog(@"authTkn = %@",[UserDefaults shareUserDefault].authTkn);
-    if ([UserDefaults shareUserDefault].authTkn) {
-        _viewController = [[HomeViewController alloc]init];
-    }else{
+//    if ([UserDefaults shareUserDefault].authTkn) {
+//        _viewController = [[HomeViewController alloc]init];
+//    }else{
         _viewController = [[RegisterAndLogViewController alloc]init];
         [Model shareModel].mainView = _viewController;
-    }
+//    }
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:_viewController];
     [navigationController setNavigationBarHidden:YES];
     self.window.rootViewController = navigationController;

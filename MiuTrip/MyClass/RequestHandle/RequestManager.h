@@ -8,11 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@class ASIHTTPRequest;
+#import "ASIHTTPRequest.h"
+#import "LoginInfoDTO.h"
+#import "TravelLifeInfo.h"
+#import "BookPassengersDTO.h"
+#import "CorpServerCardDTO.h"
+#import "CorpUserBaseInfoDTO.h"
+#import "CorpPolicyDTO.h"
+#import "CorpCostCenterDTO.h"
+#import "MemberDeliverDTO.h"
 
 #define     LogIn                       @"RequestLogin"                             //登录
 #define     Logout                      @"RequestLogout"                            //注销
-#define     GetLoginUserInfo            @"RequestGetLoginUserInfo"                  //获取登录信息
+#define     GetUserLoginInfo            @"RequestGetLoginUserInfo"                  //获取登录信息
 #define     GetTravelLifeInfo           @"RequestGetTravelLifeInfo"                 //获取商旅生涯数据
 #define     ChangePassword              @"RequestChangePassword"                    //修改密码
 #define     GetContact                  @"RequestGetContact"                        //获取常用联系人
@@ -34,6 +42,24 @@
 @optional
 - (void)requestDone:(ASIHTTPRequest*)request;
 - (void)requestError:(ASIHTTPRequest*)request;
+- (void)logInDone;
+- (void)logOutDone;
+- (void)getUserLoginInfoDone:(LoginInfoDTO*)loginInfo;
+- (void)getTravelLifeInfoDone:(TravelLifeInfo*)traveLifeInfo;
+- (void)changePasswordDone;
+- (void)getContactDone:(NSArray*)contacts;
+- (void)deleteMemberPassengerDone;
+- (void)getCorpServerCardListDone:(NSArray*)serverCardList;
+- (void)searchPassengersDone:(NSArray*)passengersList;
+- (void)getCorpStaffDone:(NSArray*)staffList;
+- (void)getCorpUserBaseInfoDone:(CorpUserBaseInfoDTO*)corpUserBaseInfo;
+- (void)getCorpPolicyDone:(CorpPolicyDTO*)corpPolicy;
+- (void)getCorpCostDone:(CostCenterListDTO*)costCenterList;
+- (void)getCorpInfoDone:(CorpInfo*)corpInfo;
+- (void)getMemberDeliverListDone:(NSArray*)memberDeliverList;
+- (void)deleteMemberDeliverDone;
+- (void)deleteDeliverDone;
+- (void)savePassengerList;
 
 @end
 
@@ -50,7 +76,7 @@
 - (void)logOut;
 
 //获取登录用户信息
-- (void)getLoginUserInfo:(NSDictionary*)params;
+- (void)getUserLoginInfo;
 //参数包含uid:用户名
 
 //获取商旅生涯数据
@@ -103,7 +129,7 @@
  name:配送名称、
  pagingOptions:翻页对象                                   PagingOptions
  FetchRecordCount:是否统计总条数(父元素名称pagingOptions)    BOOL
- PageNumber:页数(父元素名称pagingOptions)                   Int
+ PageNumber:页数(父元素名称pagingOptions)                  Int
  PageSize:单页条数(父元素名称pagingOptions)                 Int
  */
 
