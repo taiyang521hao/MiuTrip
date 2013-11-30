@@ -30,4 +30,6 @@
 @property (assign, nonatomic) NSInteger     Fli_HotCityCount;           //去过频率最高城市的次数
 @property (strong, nonatomic) NSString      *TimeSpan;                  //如：一年半内，几个月内 ，几天内
 
+- (id)initWithData:(NSDictionary*)data;
+
 @end

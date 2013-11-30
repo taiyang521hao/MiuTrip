@@ -23,6 +23,8 @@
 @property (strong, nonatomic) NSString                  *sex;
 @property (assign, nonatomic) BOOL                      getUserInfo;
 
+@property (assign, nonatomic) BOOL                      autoLogin;
+
 //0:本人 1:他人/多人
 @property (assign, nonatomic) NSInteger                 reserveObject;              //预定对象
 //0:因公 2:因私

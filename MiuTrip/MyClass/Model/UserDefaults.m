@@ -24,6 +24,8 @@ static UserDefaults *shareUserDefault;
 @synthesize sex;
 @synthesize getUserInfo;
 
+@synthesize autoLogin;
+
 @synthesize reserveObject;
 @synthesize tripGoal;
 @synthesize startCity;
@@ -70,42 +72,22 @@ static UserDefaults *shareUserDefault;
     [self setLoginInfo:Nil];
 }
 
-- (void)setLoginInfo:(LoginInfoDTO *)_loginInfo
+- (void)setAutoLogin:(BOOL)_autoLogin
 {
-    
-    if (loginInfo != _loginInfo) {
-        @try {
-            [[NSUserDefaults standardUserDefaults] setObject:_loginInfo forKey:@"loginInfo"];
-            loginInfo = _loginInfo;
-        }
-        @catch (NSException *exception) {
-            [[Model shareModel] showPromptText:[NSString stringWithFormat:@"set 异常:%@\n异常原因:%@",exception.name,exception.reason] model:YES];
-            NSLog(@"exception = %@",[NSString stringWithFormat:@"set 异常:%@\n异常原因:%@",exception.name,exception.reason]);
-        }
-        @finally {
-            
-        }
+    if (self.autoLogin != _autoLogin) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:_autoLogin] forKey:@"autoLogin"];
+        autoLogin = _autoLogin;
     }
 }
 
-- (LoginInfoDTO *)loginInfo
+- (BOOL)autoLogin
 {
-    LoginInfoDTO *loginfo = nil;
-    @try {
-        loginfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginInfo"];
-    }
-    @catch (NSException *exception) {
-        [[Model shareModel] showPromptText:[NSString stringWithFormat:@"get 异常:%@\n异常原因:%@",exception.name,exception.reason] model:YES];
-    }
-    @finally {
-        
-    }
-    return loginfo;
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"autoLogin"] boolValue];
 }
 
 - (void)setReserveObject:(NSInteger)_reserveObject
 {
-    if (reserveObject != _reserveObject) {
+    if (self.reserveObject != _reserveObject) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:_reserveObject] forKey:@"reserveObject"];
         reserveObject = _reserveObject;
     }
@@ -121,7 +103,7 @@ static UserDefaults *shareUserDefault;
 
 - (void)setTripGoal:(NSInteger)_tripGoal
 {
-    if (tripGoal != _tripGoal) {
+    if (self.tripGoal != _tripGoal) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:_tripGoal] forKey:@"tripGoal"];
         tripGoal = _tripGoal;
     }
@@ -137,7 +119,7 @@ static UserDefaults *shareUserDefault;
 
 - (void)setStartCity:(NSString *)_startCity
 {
-    if (startCity != _startCity) {
+    if (self.startCity != _startCity) {
         [[NSUserDefaults standardUserDefaults] setObject:_startCity forKey:@"startCity"];
         startCity = _startCity;
     }
@@ -153,7 +135,7 @@ static UserDefaults *shareUserDefault;
 
 - (void)setGoalCity:(NSString *)_goalCity
 {
-    if (goalCity != _goalCity) {
+    if (self.goalCity != _goalCity) {
         [[NSUserDefaults standardUserDefaults] setObject:_goalCity forKey:@"goalCity"];
         goalCity = _goalCity;
     }
@@ -170,7 +152,7 @@ static UserDefaults *shareUserDefault;
 
 - (void)setPriceRange:(NSInteger)_priceRange
 {
-    if (priceRange != _priceRange) {
+    if (self.priceRange != _priceRange) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:_priceRange] forKey:@"priceRange"];
         priceRange = _priceRange;
     }
@@ -186,7 +168,7 @@ static UserDefaults *shareUserDefault;
 
 - (void)setPostType:(NSInteger)_postType
 {
-    if (postType != _postType) {
+    if (self.postType != _postType) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:_postType] forKey:@"postType"];
         postType = _postType;
     }
@@ -202,7 +184,7 @@ static UserDefaults *shareUserDefault;
 
 - (void)setPostAddress:(NSString *)_postAddress
 {
-    if (postAddress != _postAddress) {
+    if (self.postAddress != _postAddress) {
         [[NSUserDefaults standardUserDefaults] setObject:_postAddress forKey:@"postAddress"];
         postAddress = _postAddress;
     }
@@ -218,7 +200,7 @@ static UserDefaults *shareUserDefault;
 
 - (void)setLaunchPage:(NSInteger)_launchPage
 {
-    if (launchPage != _launchPage) {
+    if (self.launchPage != _launchPage) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:_launchPage] forKey:@"launchPage"];
         launchPage = _launchPage;
     }
@@ -234,7 +216,7 @@ static UserDefaults *shareUserDefault;
 
 - (void)setAllowShake:(BOOL)_allowShake
 {
-    if (allowShake != _allowShake) {
+    if (self.allowShake != _allowShake) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:_allowShake] forKey:@"allowShake"];
         allowShake = _allowShake;
     }
@@ -250,7 +232,7 @@ static UserDefaults *shareUserDefault;
 
 - (void)setSearchRadiu:(CGFloat)_searchRadiu
 {
-    if (searchRadiu != _searchRadiu) {
+    if (self.searchRadiu != _searchRadiu) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:_searchRadiu] forKey:@"searchRadiu"];
         searchRadiu = _searchRadiu;
     }
@@ -266,7 +248,7 @@ static UserDefaults *shareUserDefault;
 
 - (void)setAuthTkn:(NSString *)_authTkn
 {
-    if (authTkn != _authTkn) {
+    if (self.authTkn != _authTkn) {
         [[NSUserDefaults standardUserDefaults] setObject:_authTkn forKey:@"authTkn"];
         authTkn = _authTkn;
     }

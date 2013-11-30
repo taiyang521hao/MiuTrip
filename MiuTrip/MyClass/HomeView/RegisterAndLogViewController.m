@@ -38,6 +38,7 @@
     if (sender.tag == 100) {
         UIImageView *logStatusImage = (UIImageView*)[self.contentView viewWithTag:200];
         [logStatusImage setHighlighted:!(logStatusImage.highlighted)];
+        [UserDefaults shareUserDefault].autoLogin = logStatusImage.highlighted;
     }else if (sender.tag == 101){
         
     }else if (sender.tag == 104){
@@ -129,6 +130,7 @@
     UIImageView *autoLogImage = [[UIImageView alloc]initWithFrame:CGRectMake(_passWord.frame.origin.x, controlYLength(_passWord) + 15, 15, 15)];
     [autoLogImage setBackgroundColor:color(clearColor)];
     [autoLogImage setTag:200];
+    [autoLogImage setHighlighted:[UserDefaults shareUserDefault].autoLogin];
     [autoLogImage setImage:imageNameAndType(@"autolog_normal", nil)];
     [autoLogImage setHighlightedImage:imageNameAndType(@"autolog_select", nil)];
     [self.contentView addSubview:autoLogImage];

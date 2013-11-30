@@ -10,6 +10,8 @@
 
 @interface BookPassengersDTO : NSObject
 
+@property (strong, nonatomic) NSString      *UniqueID;                  //唯一Id（为PassengerID和CorpUID 组合）
+
 @property (assign, nonatomic) NSInteger     PassengerID;                //旅客ID
 @property (strong, nonatomic) NSString      *CorpUID;                   //公司用户ID
 @property (assign, nonatomic) BOOL          IsEmoloyee;                 //是否雇员
@@ -19,10 +21,12 @@
 @property (strong, nonatomic) NSString      *FirstName;                 //...
 @property (strong, nonatomic) NSString      *MiddleName;                //...
 @property (strong, nonatomic) NSString      *FullENName;                //英文全名
+@property (strong, nonatomic) NSString      *Gender;                    //职员性别	M:男/F:女
+@property (strong, nonatomic) NSString      *Mobilephone;               //职员手机号
 @property (strong, nonatomic) NSString      *Email;                     //邮箱
 @property (assign, nonatomic) NSInteger     DeptID;                     //部门ID
 @property (strong, nonatomic) NSString      *DeptName;                  //部门名称
-@property (strong, nonatomic) NSString      *DeptNameEN;                //部门英文名称
+@property (strong, nonatomic) NSString      *DeptNameEn;                //部门英文名称
 @property (strong, nonatomic) NSString      *PolicyID;                  //政策ID
 @property (strong, nonatomic) NSString      *PolicyName;                //政策名称
 @property (assign, nonatomic) NSInteger     PreMinute;                  //Reason Code检测时间段前分钟数
@@ -47,12 +51,17 @@
 
 @property (strong, nonatomic) NSString      *Telephone;                 //电话
 @property (strong, nonatomic) NSString      *Fax;                       //传真
-@property (assign, nonatomic) NSInteger     ContactConfirmType;         //联系确认方式    可为空
+@property (strong, nonatomic) NSString      *ContactConfirmType;        //联系确认方式    可为空
 @property (assign, nonatomic) NSInteger     CorpID;                     //企业ID
 @property (assign, nonatomic) NSInteger     AccessLevel;                //权限级别：0出行者、1管理员
 @property (assign, nonatomic) NSInteger     AccessType;                 //角色：0演示账号、1正式账号、2测试账号
 @property (assign, nonatomic) NSInteger     MileageRule;                //积分累计规则
 @property (assign, nonatomic) NSInteger     OrderForSelf;               //是否限为本人预订 0：否 1：是
+
+@property (assign, nonatomic) BOOL          unfold;                     //cell展开
+
++ (NSArray*)getListWithData:(NSArray*)data;
+- (id)initWithParams:(NSDictionary*)params;
 
 @end
 

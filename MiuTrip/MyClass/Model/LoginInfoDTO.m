@@ -15,7 +15,7 @@
 - (id)initWithData:(NSDictionary*)data
 {
     if (self = [super init]) {
-        //_CreateTime AirlineCardList IDCardList  OrderRange
+        //AirlineCardList IDCardList
 
         _AccessLevel = [[data objectForKey:@"AccessLevel"] integerValue];
         _Birthday    = [data objectForKey:@"Birthday"];
@@ -36,8 +36,11 @@
         _HotelRC     = [data objectForKey:@"HotelRC"];
         _HtlAmountLimtMax = [[data objectForKey:@"HtlAmountLimtMax"] floatValue];
         _IsNeedRC_FltN = [data objectForKey:@"IsNeedRC_FltN"];
-        _LastLoginTime = [[[data objectForKey:@"LastLoginTime"] stringByMatching:@"\\d+"] substringWithRange:NSMakeRange(0, 10)];
-        NSLog(@"time = %@",_LastLoginTime);
+        NSString *LastLoginTime = [[data objectForKey:@"LastLoginTime"] stringByMatching:@"\\d+"];
+        if (LastLoginTime.length > 11) {
+            _LastLoginTime = [LastLoginTime substringWithRange:NSMakeRange(0, 10)];
+        }else
+            _LastLoginTime = LastLoginTime;
         _LastMinute = [[data objectForKey:@"LastMinute"] integerValue];
         _LastName   = [data objectForKey:@"LastName"];
         _Logo       = [data objectForKey:@"Logo"];
@@ -50,7 +53,8 @@
         @finally {
             
         }
-        
+        _CreateTime = [data objectForKey:@"CreateTime"];
+        _OrderRange = [data objectForKey:@"OrderRange"];
         _MiddleName = [data objectForKey:@"MiddleName"];
         _Mobilephone = [data objectForKey:@"Mobilephone"];
         _OrderForSelf = [[data objectForKey:@"OrderForSelf"] integerValue];

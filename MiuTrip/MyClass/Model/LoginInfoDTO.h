@@ -10,6 +10,9 @@
 
 @interface LoginInfoDTO : NSObject
 
+@property (strong, nonatomic) NSString      *CreateTime;            //创建时间
+@property (strong, nonatomic) NSString      *OrderRange;            //预定范围
+
 @property (strong, nonatomic) NSString      *UID;                   //用户ID
 @property (assign, nonatomic) NSInteger     AccessLevel;            //权限级别 0:出行者 1:管理者
 @property (strong, nonatomic) NSString      *UserName;              //职员姓名
@@ -43,6 +46,9 @@
 @property (assign, nonatomic) NSInteger     FltPreBookDays;         //国内机票提前预订天数
 @property (strong, nonatomic) NSString      *HotelRC;               //酒店预订ReasonCode
 @property (assign, nonatomic) CGFloat      HtlAmountLimtMax;        //酒店预订标准上限
+
+@property (strong, nonatomic) NSMutableArray *IDCardList;           //身份卡列表	List<MemberIDCardDTO>
+@property (strong, nonatomic) NSMutableArray *AirlineCardList;      //旅卡列表	List<AirlineCardDTO>
 
 - (id)initWithData:(NSDictionary*)data;
 
