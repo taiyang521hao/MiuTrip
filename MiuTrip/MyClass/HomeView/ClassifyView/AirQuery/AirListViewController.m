@@ -7,6 +7,7 @@
 //
 
 #import "AirListViewController.h"
+#import "OrderFillInViewController.h"
 
 @interface AirListViewController ()
 
@@ -60,7 +61,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    OrderFillInViewController *orderFillInView = [[OrderFillInViewController alloc]init];
+    [self pushViewController:orderFillInView transitionType:TransitionPush completionHandler:nil];
 }
 
 #pragma mark - view init

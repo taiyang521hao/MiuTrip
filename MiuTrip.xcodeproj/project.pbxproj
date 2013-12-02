@@ -146,6 +146,7 @@
 		1253D6671835D1E2004B595D /* cname_unfold_box_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1253D62D1835D1E2004B595D /* cname_unfold_box_bg.png */; };
 		1253D6681835D1E2004B595D /* topbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1253D62E1835D1E2004B595D /* topbar.png */; };
 		1253D6811835D2B1004B595D /* cname_unfold_box_last.png in Resources */ = {isa = PBXBuildFile; fileRef = 1253D6801835D2B1004B595D /* cname_unfold_box_last.png */; };
+		125A2AF2184C9DE600155BEC /* OrderFillInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A2AF1184C9DE600155BEC /* OrderFillInViewController.m */; };
 		125ADFA4183F7F9500668F08 /* order_cancle.png in Resources */ = {isa = PBXBuildFile; fileRef = 125ADFA2183F7F9500668F08 /* order_cancle.png */; };
 		125ADFA5183F7F9500668F08 /* order_done.png in Resources */ = {isa = PBXBuildFile; fileRef = 125ADFA3183F7F9500668F08 /* order_done.png */; };
 		12791519183326B700CF94F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12791518183326B700CF94F4 /* Foundation.framework */; };
@@ -428,6 +429,8 @@
 		1253D62D1835D1E2004B595D /* cname_unfold_box_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cname_unfold_box_bg.png; sourceTree = "<group>"; };
 		1253D62E1835D1E2004B595D /* topbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbar.png; sourceTree = "<group>"; };
 		1253D6801835D2B1004B595D /* cname_unfold_box_last.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cname_unfold_box_last.png; sourceTree = "<group>"; };
+		125A2AF0184C9DE600155BEC /* OrderFillInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderFillInViewController.h; sourceTree = "<group>"; };
+		125A2AF1184C9DE600155BEC /* OrderFillInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderFillInViewController.m; sourceTree = "<group>"; };
 		125ADFA2183F7F9500668F08 /* order_cancle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order_cancle.png; sourceTree = "<group>"; };
 		125ADFA3183F7F9500668F08 /* order_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order_done.png; sourceTree = "<group>"; };
 		12791515183326B700CF94F4 /* MiuTrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiuTrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1085,6 +1088,8 @@
 			children = (
 				1807C0B31844868800199E5D /* AirListViewController.h */,
 				1807C0B41844868800199E5D /* AirListViewController.m */,
+				125A2AF0184C9DE600155BEC /* OrderFillInViewController.h */,
+				125A2AF1184C9DE600155BEC /* OrderFillInViewController.m */,
 			);
 			path = AirQuery;
 			sourceTree = "<group>";
@@ -1433,6 +1438,7 @@
 				127915571833292700CF94F4 /* DatePickerViewController.m in Sources */,
 				18B473601846FC7A003FF7AD /* CorpPolicyDTO.m in Sources */,
 				124789E21836363100AA0083 /* ASIDataDecompressor.m in Sources */,
+				125A2AF2184C9DE600155BEC /* OrderFillInViewController.m in Sources */,
 				18B4735D1846F9A5003FF7AD /* CorpUserBaseInfoDTO.m in Sources */,
 				B591AF651849DD01003BA7A3 /* LoginResponse.m in Sources */,
 				18B473511846E977003FF7AD /* TravelLifeInfo.m in Sources */,
