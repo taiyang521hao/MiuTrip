@@ -7,7 +7,3 @@
 //
 
 #import "MiuTripOrderDetail.h"
-
-
-
-

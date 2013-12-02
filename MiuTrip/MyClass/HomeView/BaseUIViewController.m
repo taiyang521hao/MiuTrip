@@ -312,41 +312,50 @@
     return nil;
 }
 
+-(void)sendRequestWithRequest:(BaseRequestModel *)request{
+    
+    if(request == Nil){
+        return;
+    }
+
+    ASIFormDataRequest *asiRequest = [[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[request getRequestURLString]]];
+    
+    NSString *json = [request getRequestJsonString:YES];
+    NSLog(@"request json = '%@'",json);
+
+    [asiRequest setPostValue:json forKey:@"Json"];
+    [asiRequest setDelegate:self];
+    
+    [asiRequest setTimeOutSeconds:30];
+    [asiRequest setUseCookiePersistence:NO];
+    [asiRequest startAsynchronous];
+}
+
 - (void)sendRequestWithURL:(NSString*)URLString params:(NSDictionary*)_params requestMethod:(RequestType)requestType userInfo:(NSDictionary*)userInfo
 {
-//    if (requestType == RequestGet) {
-//        NSMutableDictionary *cookie = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-//                                       [UserDefaults shareUserDefault].cookie,  @"Cookie",
-//                                       nil];
-//        NSString *urlParams = @"";
-//        if (params != nil) {
-//            NSArray *keys = [params allKeys];
-//            for (NSString *key in keys) {
-//                urlParams = [urlParams stringByAppendingFormat:@"%@=%@",key,[params objectForKey:key]];
-//                if (key != [keys lastObject]) {
-//                    urlParams = [urlParams stringByAppendingString:@"&"];
-//                }
-//            }
-//            if (urlParams) {
-//                URLString = [URLString stringByAppendingFormat:@"?%@",urlParams];
-//            }
-//        }
-//        ASIHTTPRequest *request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:URLString]];
-//        [request setUserInfo:userInfo];
-//        [request setTimeOutSeconds:30];
-//        [request setRequestHeaders:cookie];
-//        [request setUseCookiePersistence:NO];
-//        [request setDelegate:self];
-//        [request startAsynchronous];
-//    }else
+
+    if(URLString == nil || URLString.length == 0){
+        return;
+    }
+    
+    NSLog(@"url = '%@'",URLString);
     NSMutableDictionary *params = nil;
     if (_params) {
         params = [NSMutableDictionary dictionaryWithDictionary:_params];
     }else{
         params = [NSMutableDictionary dictionary];
     }
-    if (requestType == RequestPost || requestType == RequestLogIn){
     
+
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:URLString]];
+    [request setUserInfo:userInfo];
+    
+    [params setObject:deviceId forKey:@"deviceId"];
+    [params setObject:@"0" forKey:@"appId"];
+    [params setObject:[Utils stringWithDate:[NSDate date] withFormat:@"yyyy-MM-dd HH:mm:ss"] forKey:@"processTime"];
+    
+    if(requestType != RequestLogIn){
+            [params setObject:[UserDefaults shareUserDefault].authTkn forKey:@"authTkn"];
         ASIFormDataRequest *request = [[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:URLString]];
         [request setUserInfo:userInfo];
         
@@ -382,22 +391,29 @@
         request.delegate = self;
         [request startAsynchronous];
     }
+    
+    NSString *json = [params JSONRepresentation];
+    NSLog(@"request json = '%@'",json);
+           
+    [request setPostValue:json forKey:@"Json"];
+    [request setDelegate:self];
+    
+    [request setTimeOutSeconds:30];
+    [request setUseCookiePersistence:NO];
+    [request startAsynchronous];
+    
     self.view.userInteractionEnabled = NO;
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    NSLog(@"response string = %@",request.responseString);
     self.view.userInteractionEnabled = YES;
-    NSDictionary *dic = [request.responseString JSONValue];
+    NSString *responseString = request.responseString;
+    NSLog(@"response string = '%@'",responseString);
+    NSDictionary *dic = [responseString JSONValue];
     if ([[dic objectForKey:@"process_status"] isEqualToString:@"0"]) {
-        NSString *requestType = [request.userInfo objectForKey:@"requestType"];
-        if ([requestType isEqualToString:@"RequestLogIn"]) {
-            [UserDefaults shareUserDefault].authTkn = [dic objectForKey:@"authTkn"];
-        }else if ([requestType isEqualToString:@"RequestLogOut"]) {
-            [[UserDefaults shareUserDefault] clearDefaults];
-        }
-        [self requestDone:request];
+        [self requestDone:dic];
+        [self requestSuccess:responseString];
     }else{
         [[Model shareModel] showPromptText:[NSString stringWithFormat:@"%@\n错误码%@",[dic objectForKey:@"errorMessage"],[dic objectForKey:@"errorCode"]] model:YES];
     }
@@ -409,13 +425,18 @@
     [self requestError:request];
 }
 
-- (void)requestDone:(ASIHTTPRequest*)request
+- (void)requestDone:(NSDictionary*)responseData
 {
     //subview inherit this method to do request finished handle
 }
 - (void)requestError:(ASIHTTPRequest*)request
 {
-    //subview inherit this method to do request finished handle
+    //subview inherit this method to do error finished handle
+}
+
+- (void)requestSuccess:(NSString *)responseData
+{
+    //subview inherit this method to do success finished handle
 }
 
 - (void)pushViewController:(BaseUIViewController*)_viewController transitionType:(TransitionType)_transitionType completionHandler:(void (^) (void))_compleHandler

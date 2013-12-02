@@ -8,6 +8,7 @@
 
 #import "RegisterAndLogViewController.h"
 #import "HomeViewController.h"
+#import "HotelCitesRequest.h"
 
 @interface RegisterAndLogViewController ()
 
@@ -42,22 +43,34 @@
     }else if (sender.tag == 101){
         
     }else if (sender.tag == 104){
-        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                                self.userName.text,                 @"username",
-                                self.passWord.text,                 @"password",
-                                nil];
-        [self.requestManager logIn:params];
+        
+        LoginRequest *request = [[LoginRequest alloc]initWidthBusinessType:BUSINESS_ACCOUNT methodName:@"Login"];
+        
+        request.username = _userName.text;
+        request.password = _passWord.text;
+        request.rememberMe = [NSNumber numberWithBool:YES];
+        
+        [self.requestManager sendRequestWithoutToken:request];
+        
         [[Model shareModel] setUserInteractionEnabled:NO];
     }
 }
 
 #pragma mark - request handle
-- (void)logInDone
-{
+
+-(void)requestFailedWithErrorCode:(NSNumber *)errorCode withErrorMsg:(NSString *)errorMsg{
+    
+}
+
+-(void)requestDone:(BaseResponseModel *) response{
+    
     [[Model shareModel] setUserInteractionEnabled:YES];
+    LoginResponse *loginReponse = (LoginResponse*)response;
+    [[UserDefaults shareUserDefault] setAuthTkn:loginReponse.authTkn];
     HomeViewController *homeView = [[HomeViewController alloc]init];
     [[Model shareModel] showPromptText:@"登陆成功" model:YES];
     [self pushViewController:homeView transitionType:TransitionPush completionHandler:nil];
+    
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

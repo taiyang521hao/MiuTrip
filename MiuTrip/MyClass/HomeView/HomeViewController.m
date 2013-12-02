@@ -15,6 +15,11 @@
 #import "SettingViewController.h"
 #import "AirListViewController.h"
 
+#import "HotelCitesRequest.h"
+#import "HotelCitesResponse.h"
+
+#import "LoginInfoDTO.h"
+
 @interface HomeViewController ()
 
 @property (strong, nonatomic) UIView                *viewPageHotel;
@@ -76,12 +81,15 @@
 
 - (void)getUserLoginInfo
 {
-    [self.requestManager getUserLoginInfo];
+    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetUesrLoginInfo/api"];
+    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:[UserDefaults shareUserDefault].userName,@"uid", nil];
+    [self sendRequestWithURL:urlString params:params requestMethod:RequestPost userInfo:nil];
+//    [self.requestManager getUserLoginInfo];
 }
 
 - (void)logOff:(UIButton*)sender
 {
-    [self.requestManager logOut];
+//    [self.requestManager logOut];
 }
 
 #pragma mark - request handle
@@ -93,17 +101,17 @@
 
 - (void)requestError:(ASIHTTPRequest *)request
 {
-    NSString *requestType = [request.userInfo objectForKey:@"requestType"];
-    if ([requestType isEqualToString:Logout]) {
+//    NSString *requestType = [request.userInfo objectForKey:@"requestType"];
+//    if ([requestType isEqualToString:Logout]) {
         [self popToMainViewControllerTransitionType:TransitionPush completionHandler:nil];
-    }
+//    }
 }
 
 - (void)getUserLoginInfoDone:(LoginInfoDTO*)loginInfo
 {
-    [_userName setText:loginInfo.UserName];
-    [_position setText:[Utils nilToEmpty:loginInfo.DeptName]];
-    [_company setText:[Utils nilToEmpty:loginInfo.CorpName]];
+//    [_userName setText:loginInfo.UserName];
+//    [_position setText:[Utils nilToEmpty:loginInfo.DeptName]];
+//    [_company setText:[Utils nilToEmpty:loginInfo.CorpName]];
 }
 
 - (void)pressSubitem:(UIButton*)sender
@@ -290,8 +298,9 @@
     
 //    [self getLoginUserInfo];
     [self setSubjoinViewFrame];
+
     if (![UserDefaults shareUserDefault].loginInfo) {
-        [self.requestManager getUserLoginInfo];
+//        [self.requestManager getUserLoginInfo];
     }
 }
 
@@ -627,9 +636,17 @@
     }
 }
 
+
+
 - (void)pressHotelItemBtn:(UIButton*)sender
 {
     NSLog(@"item tag = %d",sender.tag);
+    switch (sender.tag) {
+        case 500:
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)pressHotelItemDone:(UIButton*)sender
@@ -946,8 +963,8 @@
 - (void)pressAirItemDone:(UIButton*)sender
 {
     NSLog(@"btn tag = %d",sender.tag);
-//    AirListViewController *airListView = [[AirListViewController alloc]init];
-//    [self pushViewController:airListView transitionType:TransitionPush completionHandler:Nil];
+    AirListViewController *airListView = [[AirListViewController alloc]init];
+    [self pushViewController:airListView transitionType:TransitionPush completionHandler:Nil];
     switch (sender.tag) {
         case 750:{
             
@@ -1104,7 +1121,7 @@
         }case 402:{
             TripCareerViewController *tripCareerView = [[TripCareerViewController alloc]init];
             [self pushViewController:tripCareerView transitionType:TransitionPush completionHandler:^{
-                [tripCareerView.requestManager getTravelLifeInfo];
+//                [tripCareerView.requestManager getTravelLifeInfo];
             }];
             break;
         }case 403:{

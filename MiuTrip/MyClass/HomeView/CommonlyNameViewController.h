@@ -8,6 +8,8 @@
 
 #import "BaseUIViewController.h"
 
+@class BookPassengersDTO;
+
 #define             CommonlyNameViewCellHeight                  40
 
 @interface CommonlyNameViewController : BaseUIViewController<UITableViewDataSource,UITableViewDelegate>
