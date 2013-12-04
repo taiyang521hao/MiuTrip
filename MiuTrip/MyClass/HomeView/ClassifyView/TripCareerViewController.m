@@ -35,6 +35,11 @@
 }
 
 #pragma mark - request handle
+- (void)getTravelLifeInfo
+{
+    
+}
+
 //- (void)getTravelLifeInfoDone:(TravelLifeInfo *)traveLifeInfo
 //{
 //    _travelLifeInfo = traveLifeInfo;

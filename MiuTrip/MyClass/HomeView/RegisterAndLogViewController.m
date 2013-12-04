@@ -9,6 +9,8 @@
 #import "RegisterAndLogViewController.h"
 #import "HomeViewController.h"
 #import "HotelCitesRequest.h"
+#import "LoginRequest.h"
+#import "LoginResponse.h"
 
 @interface RegisterAndLogViewController ()
 
@@ -48,7 +50,6 @@
         
         request.username = _userName.text;
         request.password = _passWord.text;
-        request.rememberMe = [NSNumber numberWithBool:YES];
         
         [self.requestManager sendRequestWithoutToken:request];
         

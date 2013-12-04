@@ -1205,7 +1205,7 @@ static void rkl_handleDelayedAssert(id self, SEL _cmd, id exception) {
 //  IMPORTANT!   Should only be called from rkl_performRegexOp() or rkl_findRanges().
 //  ----------
 
-#pragma mark Primary means of performing a search with a regular expression
+#pragma mark Primary means of performing a search with a regular exprAceression
 
 static NSUInteger rkl_search(RKLCachedRegex *cachedRegex, NSRange *searchRange, NSUInteger updateSearchRange, id *exception RKL_UNUSED_ASSERTION_ARG, int32_t *status) {
   NSUInteger foundMatch = 0UL;

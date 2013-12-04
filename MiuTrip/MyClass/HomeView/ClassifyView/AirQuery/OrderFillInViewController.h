@@ -8,8 +8,6 @@
 
 #import "BaseUIViewController.h"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 #define         OrderFillCellHeight         40.0
 #define         OrderFillCellWidth          (appFrame.size.width - 30)
 
@@ -22,13 +20,3 @@
 - (void)setContentWithParams:(NSObject*)param;
 
 @end
-=======
-@interface OrderFillInViewController : BaseUIViewController
-
-@end
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
-=======
-@interface OrderFillInViewController : BaseUIViewController
-
-@end
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86

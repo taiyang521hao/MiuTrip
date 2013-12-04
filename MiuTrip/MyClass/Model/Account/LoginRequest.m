@@ -10,6 +10,12 @@
 
 @implementation LoginRequest
 
-
+- (BaseRequestModel *)initWidthBusinessType:(BusinessType)bussinessType methodName:(NSString *)methodName
+{
+    if (self = [super initWidthBusinessType:bussinessType methodName:methodName]) {
+        _rememberMe = [NSNumber numberWithBool:[UserDefaults shareUserDefault].autoLogin];
+    }
+    return self;
+}
 
 @end

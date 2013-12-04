@@ -14,6 +14,7 @@
 #import "CustomMethod.h"
 #import "BaseRequestModel.h"
 #import "RequestManager.h"
+#import "Common.h"
 
 
 @class BaseContentView;
@@ -61,12 +62,6 @@ typedef NS_OPTIONS(NSInteger, RequestType){
 - (void)setPopToMainViewButton:(UIButton*)button;
 
 - (UIView *)findKeyboard;
-
--(void)sendRequestWithRequest:(BaseRequestModel *)request;
-- (void)sendRequestWithURL:(NSString*)URLString params:(NSDictionary*)params requestMethod:(RequestType)requestType userInfo:(NSDictionary*)userInfo;
-- (void)requestDone:(NSDictionary*)responseData;
-- (void)requestError:(ASIHTTPRequest*)request;
-- (void)requestSuccess:(NSString*)responseData;
 
 - (void)pushViewController:(BaseUIViewController*)_viewController transitionType:(TransitionType)_transitionType completionHandler:(void (^) (void))_compleHandler;
 - (void)popViewControllerTransitionType:(TransitionType)_transitionType completionHandler:(void (^) (void))_compleHandler;

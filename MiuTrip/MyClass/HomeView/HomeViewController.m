@@ -19,6 +19,10 @@
 #import "HotelCitesResponse.h"
 
 #import "LoginInfoDTO.h"
+#import "GetLoginUserInfoRequest.h"
+#import "LoginRequest.h"
+#import "LogoutRequest.h"
+#import "GetNormalFlightsRequest.h"
 
 @interface HomeViewController ()
 
@@ -65,12 +69,12 @@
     return self;
 }
 
+#pragma mark - request handle
 - (id)init
 {
     if (self = [super init]) {
         [self.contentView setHidden:NO];
         _moreViewUnfold = NO;
-        //[self.contentView setBackgroundColor:color(colorWithRed:236.0/255.0 green:236.0/255.0 blue:236.0/255.0 alpha:1)];
         [self.contentView setUserInteractionEnabled:YES];
         [self.contentView setBackgroundColor:color(colorWithRed:215.0/255.0 green:215.0/255.0 blue:215.0/255.0 alpha:1)];
         _btnArray = [NSMutableArray array];
@@ -81,37 +85,57 @@
 
 - (void)getUserLoginInfo
 {
-    NSString *urlString = [MiuTripURL stringByAppendingString:@"/account_1_0/GetUesrLoginInfo/api"];
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:[UserDefaults shareUserDefault].userName,@"uid", nil];
-    [self sendRequestWithURL:urlString params:params requestMethod:RequestPost userInfo:nil];
-//    [self.requestManager getUserLoginInfo];
+    GetLoginUserInfoRequest *request = [[GetLoginUserInfoRequest alloc]initWidthBusinessType:BUSINESS_ACCOUNT methodName:@"GetUserLoginInfo"];
+    [self.requestManager sendRequest:request];
 }
 
 - (void)logOff:(UIButton*)sender
 {
-//    [self.requestManager logOut];
+    LogoutRequest *request = [[LogoutRequest alloc]initWidthBusinessType:BUSINESS_ACCOUNT methodName:@"logout"];
+    [self.requestManager sendRequest:request];
 }
 
-#pragma mark - request handle
-- (void)logOutDone
+- (void)getAllCity
+{
+    if ([[UserDefaults shareUserDefault].allCity count] == 0) {
+        GetAllCityRequest *request = [[GetAllCityRequest alloc]initWidthBusinessType:BUSINESS_FLIGHT methodName:@"GetAllCity"];
+        [self.requestManager sendRequest:request];
+    }
+}
+
+-(void)requestDone:(BaseResponseModel *) response
+{
+    if ([response isKindOfClass:[LogoutResponse class]]) {
+        [self logOutDone:(LogoutResponse*)response];
+    }else if ([response isKindOfClass:[GetLoginUserInfoResponse class]]){
+        [self getUserLoginInfoDone:(GetLoginUserInfoResponse*)response];
+    }else if ([response isKindOfClass:[GetAllCityResponse class]]){
+        [self getAllCityDone:(GetAllCityResponse*)response];
+    }
+}
+
+- (void)logOutDone:(LogoutResponse*)response
 {
     [[Model shareModel] showPromptText:@"注销成功" model:YES];
+    [[UserDefaults shareUserDefault]clearDefaults];
     [self popToMainViewControllerTransitionType:TransitionPush completionHandler:nil];
 }
 
-- (void)requestError:(ASIHTTPRequest *)request
+- (void)getAllCityDone:(GetAllCityResponse*)response
 {
-//    NSString *requestType = [request.userInfo objectForKey:@"requestType"];
-//    if ([requestType isEqualToString:Logout]) {
-        [self popToMainViewControllerTransitionType:TransitionPush completionHandler:nil];
-//    }
+    
 }
 
-- (void)getUserLoginInfoDone:(LoginInfoDTO*)loginInfo
+-(void)requestFailedWithErrorCode:(NSNumber *) errorCode withErrorMsg:(NSString *) errorMsg
 {
-//    [_userName setText:loginInfo.UserName];
-//    [_position setText:[Utils nilToEmpty:loginInfo.DeptName]];
-//    [_company setText:[Utils nilToEmpty:loginInfo.CorpName]];
+    
+}
+
+- (void)getUserLoginInfoDone:(GetLoginUserInfoResponse*)loginInfo
+{
+    [_userName setText:loginInfo.UserName];
+    [_position setText:[Utils nilToEmpty:loginInfo.DeptName]];
+    [_company setText:[Utils nilToEmpty:loginInfo.CorpName]];
 }
 
 - (void)pressSubitem:(UIButton*)sender
@@ -302,6 +326,71 @@
     if (![UserDefaults shareUserDefault].loginInfo) {
 //        [self.requestManager getUserLoginInfo];
     }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    /**
+     if (1) {
+        [super touchesEnded:touches withEvent:event];
+        
+        UITouch *touch = [touches anyObject];
+        CGPoint point = [touch locationInView:self.contentView];
+        
+        UISegmentedControl *segmentedControl = (UISegmentedControl*)[self.view viewWithTag:10000];
+        UIView *bottomView = [_viewPageHotel viewWithTag:600];
+        CGRect rect;
+        if (segmentedControl.selectedSegmentIndex == 0) {
+            rect = CGRectMake(0, _viewPageHotel.frame.origin.y + bottomView.frame.origin.y, bottomView.frame.size.width, bottomView.frame.size.height);
+        }
+        NSLog(@"rect x = %f,y = %f,width = %f,height = %f",rect.origin.x,rect.origin.y,rect.size.width,rect.size.height);
+        NSInteger index = 100;
+        CGRect currentRect;
+        for (int i = 0; i<6; i++) {
+            index = i;
+            
+            if (i < 3 && i >= 0) {
+                currentRect = CGRectMake(rect.origin.x, rect.origin.y + i * 40 + 10, rect.size.width, 40);
+                if (CGRectContainsPoint(currentRect, point)) {
+                    break;
+                }
+            }else if (i < 6 && i >= 3) {
+                currentRect = CGRectMake(rect.origin.x, rect.origin.y + rect.size.height - 40 * (6 - i), rect.size.width, 40);
+                NSLog(@"rect.origin.y + rect.size.height = %f,40 * (6 - i) = %f",rect.origin.y + rect.size.height,40.0 * (6 - i));
+                if (CGRectContainsPoint(currentRect, point)) {
+                    break;
+                }
+            }
+        }
+        NSLog(@"rect x = %f,y = %f,width = %f,height = %f",currentRect.origin.x,currentRect.origin.y,currentRect.size.width,currentRect.size.height);
+        
+        NSLog(@"index = %d",index);
+        switch (index) {
+            case 0:{
+                
+                break;
+            }case 1:{
+                
+                break;
+            }case 2:{
+                
+                break;
+            }case 3:{
+                
+                break;
+            }case 4:{
+                
+                break;
+            }case 5:{
+                
+                break;
+            }
+            default:
+                break;
+        }
+    }//用touch除法button method
+     */
+    [super touchesEnded:touches withEvent:event];
 }
 
 - (void)setSubjoinViewFrame
@@ -893,15 +982,18 @@
 - (void)pressAirItemBtn:(UIButton*)sender
 {
     NSLog(@"air tag = %d",sender.tag);
+    [self getAllCity];
 }
 
 - (void)pressAirItemDone:(UIButton*)sender
 {
     NSLog(@"btn tag = %d",sender.tag);
-    AirListViewController *airListView = [[AirListViewController alloc]init];
-    [self pushViewController:airListView transitionType:TransitionPush completionHandler:Nil];
+//    AirListViewController *airListView = [[AirListViewController alloc]init];
+//    [self pushViewController:airListView transitionType:TransitionPush completionHandler:Nil];
     switch (sender.tag) {
         case 750:{
+            GetNormalFlightsRequest *request = [[GetNormalFlightsRequest alloc]initWidthBusinessType:BUSINESS_FLIGHT methodName:@"GetNormalFlights"];
+            [request setDepartCity:@"北京"];
             
             break;
         }case 751:{
@@ -1139,6 +1231,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self getUserLoginInfo];
 	// Do any additional setup after loading the view.
 }
 

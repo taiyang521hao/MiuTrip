@@ -7,8 +7,6 @@
 //
 
 #import "OrderFillInViewController.h"
-<<<<<<< HEAD
-<<<<<<< HEAD
 #import "OrderResultViewController.h"
 #import "BookPassengersDTO.h"
 
@@ -35,30 +33,6 @@
 @property (strong, nonatomic) UITextField           *payTypeTf;             //支付方式
 
 @property (strong, nonatomic) UITextView            *detailTextTv;          //附加信息
-=======
-=======
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
-
-@interface OrderFillInViewController ()
-
-@property (strong, nonatomic) UILabel               *flightTimeLb;
-@property (strong, nonatomic) UILabel               *fromAndToLb;
-@property (strong, nonatomic) UILabel               *flightNumLb;
-@property (strong, nonatomic) UILabel               *seatTypeLb;
-@property (strong, nonatomic) UILabel               *priceLb;
-
-@property (strong, nonatomic) UILabel               *positionLb;
-@property (strong, nonatomic) UILabel               *passengerName;
-
-@property (strong, nonatomic) UITextField           *contactName;
-@property (strong, nonatomic) UITextField           *contactPhoneNum;
-
-@property (strong, nonatomic) UITextField           *postType;
-@property (strong, nonatomic) UITextField           *payType;
-<<<<<<< HEAD
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
-=======
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
 
 @end
 
@@ -81,8 +55,6 @@
     return self;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 - (void)tableViewReloadData:(UITableView*)tableView
 {
     if ([_dataSource count] != 0) {
@@ -124,10 +96,6 @@
     
 }
 
-=======
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
-=======
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
 #pragma mark - view init
 - (void)setSubviewFrame
 {
@@ -147,21 +115,9 @@
 
 - (void)setSubjoinViewFrame
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
     UILabel *baseInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, controlYLength(self.topBar), self.contentView.frame.size.width - 20, 30)];
     [baseInfoLabel setText:@"基本信息"];
     [baseInfoLabel setTextColor:color(colorWithRed:130.0/255.0 green:140.0/255.0 blue:170.0/255.0 alpha:1)];
-=======
-    UILabel *baseInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, controlYLength(self.topBar), self.contentView.frame.size.width - 20, 30)];
-    [baseInfoLabel setText:@"基本信息"];
-    [baseInfoLabel setTextColor:color(darkGrayColor)];
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
-=======
-    UILabel *baseInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, controlYLength(self.topBar), self.contentView.frame.size.width - 20, 30)];
-    [baseInfoLabel setText:@"基本信息"];
-    [baseInfoLabel setTextColor:color(darkGrayColor)];
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
     [baseInfoLabel setFont:[UIFont systemFontOfSize:13]];
     [self.contentView addSubview:baseInfoLabel];
     
@@ -170,9 +126,7 @@
     [baseInfoBackgroundView setCornerRadius:2.5];
     [baseInfoBackgroundView setShaowColor:baseInfoBackgroundView.backgroundColor offset:CGSizeMake(4, 4) opacity:1 radius:2.5];
     [self.contentView addSubview:baseInfoBackgroundView];
-    
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     UILabel *airLineInfo = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, baseInfoBackgroundView.frame.size.width - 20, 25)];
     [airLineInfo setText:@"航班信息"];
     [airLineInfo setTextColor:color(grayColor)];
@@ -420,24 +374,6 @@
         canResignFirstResponder = YES;
     }
     return canResignFirstResponder;
-=======
-=======
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
-    UILabel *airLineInfo = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, baseInfoBackgroundView.frame.size.width - 20, 30)];
-    [airLineInfo setText:@"航班信息"];
-    [airLineInfo setTextColor:color(grayColor)];
-    [airLineInfo setFont:[UIFont systemFontOfSize:12]];
-    [self.contentView addSubview:airLineInfo];
-    
-    UILabel *flightTime = [[UILabel alloc]initWithFrame:CGRectMake(airLineInfo.frame.origin.x, controlYLength(airLineInfo), airLineInfo.frame.size.width/3, airLineInfo.frame.size.height)];
-    [flightTime setText:[Utils stringWithDate:[NSDate date] withFormat:@"yyyy-MM-dd"]];
-    [self.contentView addSubview:flightTime];
-    
-    
-<<<<<<< HEAD
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
-=======
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
 }
 
 - (void)viewDidLoad
@@ -453,8 +389,6 @@
 }
 
 @end
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 @interface OrderFillInViewCell ()
 
@@ -506,7 +440,4 @@
 }
 
 @end
-=======
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
-=======
->>>>>>> aa353be63737effc846c57f5728406c62a4a3a86
+
