@@ -302,6 +302,8 @@
 		1856475A184C66A20031E5D6 /* icon_arrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18564757184C66A20031E5D6 /* icon_arrow2.png */; };
 		1856475B184C66A20031E5D6 /* icon_screening.png in Resources */ = {isa = PBXBuildFile; fileRef = 18564758184C66A20031E5D6 /* icon_screening.png */; };
 		18573C8A1849A94800A19D7E /* CityPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18573C891849A94800A19D7E /* CityPickerViewController.m */; };
+		18621389185019A500134C08 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18621388185019A500134C08 /* TestViewController.m */; };
+		1862138D185026AC00134C08 /* GetCorpCostResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862138C185026AC00134C08 /* GetCorpCostResponse.m */; };
 		187CBD1218485D2D00F25BD7 /* air_arr_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 187CBD0E18485D2D00F25BD7 /* air_arr_icon.png */; };
 		187CBD1318485D2D00F25BD7 /* air_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 187CBD0F18485D2D00F25BD7 /* air_arrow.png */; };
 		187CBD1418485D2D00F25BD7 /* air_exchange.png in Resources */ = {isa = PBXBuildFile; fileRef = 187CBD1018485D2D00F25BD7 /* air_exchange.png */; };
@@ -767,6 +769,11 @@
 		18564758184C66A20031E5D6 /* icon_screening.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_screening.png; sourceTree = "<group>"; };
 		18573C881849A94800A19D7E /* CityPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityPickerViewController.h; sourceTree = "<group>"; };
 		18573C891849A94800A19D7E /* CityPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityPickerViewController.m; sourceTree = "<group>"; };
+		18621387185019A500134C08 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		18621388185019A500134C08 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		1862138A1850253900134C08 /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		1862138B185026AC00134C08 /* GetCorpCostResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCorpCostResponse.h; sourceTree = "<group>"; };
+		1862138C185026AC00134C08 /* GetCorpCostResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCorpCostResponse.m; sourceTree = "<group>"; };
 		187CBD0E18485D2D00F25BD7 /* air_arr_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air_arr_icon.png; sourceTree = "<group>"; };
 		187CBD0F18485D2D00F25BD7 /* air_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air_arrow.png; sourceTree = "<group>"; };
 		187CBD1018485D2D00F25BD7 /* air_exchange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air_exchange.png; sourceTree = "<group>"; };
@@ -1260,6 +1267,8 @@
 				127915621833512700CF94F4 /* RegisterAndLogViewController.m */,
 				127915751833659D00CF94F4 /* HomeViewController.h */,
 				127915761833659D00CF94F4 /* HomeViewController.m */,
+				18621387185019A500134C08 /* TestViewController.h */,
+				18621388185019A500134C08 /* TestViewController.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1420,6 +1429,8 @@
 				18535BC7184EF3C0007FABF5 /* GetContactResponse.m */,
 				18535BC8184EF3C0007FABF5 /* GetCorpCostRequest.h */,
 				18535BC9184EF3C0007FABF5 /* GetCorpCostRequest.m */,
+				1862138B185026AC00134C08 /* GetCorpCostResponse.h */,
+				1862138C185026AC00134C08 /* GetCorpCostResponse.m */,
 				18535BCA184EF3C0007FABF5 /* GetCorpInfoRequest.h */,
 				18535BCB184EF3C0007FABF5 /* GetCorpInfoRequest.m */,
 				18535BCC184EF3C0007FABF5 /* GetCorpInfoResponse.h */,
@@ -1476,6 +1487,7 @@
 				B591AF611849D320003BA7A3 /* LoginRequest.m */,
 				B591AF631849DD01003BA7A3 /* LoginResponse.h */,
 				B591AF641849DD01003BA7A3 /* LoginResponse.m */,
+				1862138A1850253900134C08 /* Account.h */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1887,6 +1899,7 @@
 				18535C95184F1ACB007FABF5 /* GetAllCityResponse.m in Sources */,
 				1807C0B51844868800199E5D /* AirListViewController.m in Sources */,
 				18535C59184F0B07007FABF5 /* GetNormalFlightsResponse.m in Sources */,
+				18621389185019A500134C08 /* TestViewController.m in Sources */,
 				18535C13184EF3C1007FABF5 /* GetCorpStaffResponse.m in Sources */,
 				18535CA7184F20A3007FABF5 /* SendSMSResponse.m in Sources */,
 				18535CA4184F2093007FABF5 /* SendSMSRequest.m in Sources */,
@@ -1926,6 +1939,7 @@
 				12791525183326B700CF94F4 /* main.m in Sources */,
 				18535C01184EF3C1007FABF5 /* DeleteDeliverRequest.m in Sources */,
 				124789F31836363100AA0083 /* NSObject+SBJson.m in Sources */,
+				1862138D185026AC00134C08 /* GetCorpCostResponse.m in Sources */,
 				18B4736C184731DC003FF7AD /* RegexKitLite.m in Sources */,
 				12835DA7183DB39500D97422 /* HotelAndAirOrderViewController.m in Sources */,
 				18535C92184F1AC0007FABF5 /* GetAllCityRequest.m in Sources */,

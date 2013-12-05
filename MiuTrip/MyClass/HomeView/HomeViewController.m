@@ -98,7 +98,7 @@
 - (void)getAllCity
 {
     if ([[UserDefaults shareUserDefault].allCity count] == 0) {
-        GetAllCityRequest *request = [[GetAllCityRequest alloc]initWidthBusinessType:BUSINESS_FLIGHT methodName:@"GetAllCity"];
+        GetAllCityRequest *request = [[GetAllCityRequest alloc]initWidthBusinessType:BUSINESS_COMMON methodName:@"GetAllCity"];
         [self.requestManager sendRequest:request];
     }
 }
@@ -133,6 +133,7 @@
 
 - (void)getUserLoginInfoDone:(GetLoginUserInfoResponse*)loginInfo
 {
+    [UserDefaults shareUserDefault].loginInfo = loginInfo;
     [_userName setText:loginInfo.UserName];
     [_position setText:[Utils nilToEmpty:loginInfo.DeptName]];
     [_company setText:[Utils nilToEmpty:loginInfo.CorpName]];

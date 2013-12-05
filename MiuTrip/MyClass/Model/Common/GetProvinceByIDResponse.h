@@ -18,7 +18,7 @@
 
 @end
 
-@interface CityDTO : NSObject
+@interface CityDTO : BaseResponseModel
 
 @property (strong, nonatomic) NSNumber      *CityID;                //城市ID	int
 @property (strong, nonatomic) NSString      *CityCode;              //城市首字母
@@ -32,11 +32,13 @@
 
 @end
 
-@interface CantonDTO : NSObject
+@interface CantonDTO : BaseResponseModel
 
 @property (strong, nonatomic) NSNumber      *CID;                   //区域ID	int
 @property (strong, nonatomic) NSString      *Canton_Name;           //区域名称
 @property (strong, nonatomic) NSNumber      *CityID;                //城市ID	int
 @property (strong, nonatomic) NSString      *Canton_EnName;         //区域英文名称
+
++ (NSArray*)getCantonsResponseWithData:(NSObject*)jsonData;
 
 @end

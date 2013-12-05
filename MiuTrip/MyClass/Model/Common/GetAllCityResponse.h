@@ -7,9 +7,12 @@
 //
 
 #import "BaseResponseModel.h"
+#import "GetProvinceByIDResponse.h"
 
 @interface GetAllCityResponse : BaseResponseModel
 
 @property (strong, nonatomic) NSArray       *cities;        //城市列表	List<CityDTO>
+
++ (NSArray *)getAllCityResponseWithData:(NSObject *)jsonData;
 
 @end

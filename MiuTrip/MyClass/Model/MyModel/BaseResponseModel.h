@@ -15,5 +15,4 @@
 @interface BaseResponseModel : NSObject<ResponseDelegate>
 
 
-
 @end

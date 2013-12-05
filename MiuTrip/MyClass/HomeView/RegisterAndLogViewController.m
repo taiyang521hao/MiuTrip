@@ -11,6 +11,7 @@
 #import "HotelCitesRequest.h"
 #import "LoginRequest.h"
 #import "LoginResponse.h"
+#import "TestViewController.h"
 
 @interface RegisterAndLogViewController ()
 
@@ -70,8 +71,9 @@
     [[UserDefaults shareUserDefault] setAuthTkn:loginReponse.authTkn];
     HomeViewController *homeView = [[HomeViewController alloc]init];
     [[Model shareModel] showPromptText:@"登陆成功" model:YES];
-    [self pushViewController:homeView transitionType:TransitionPush completionHandler:nil];
-    
+    [homeView getUserLoginInfo];
+    TestViewController *testView = [[TestViewController alloc]init];
+    [self pushViewController:testView transitionType:TransitionPush completionHandler:nil];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

@@ -16,6 +16,12 @@
 #import "Model.h"
 #import "AppDelegate.h"
 
+@interface RequestManager ()
+
+@property (assign, nonatomic) BOOL      unparsh;
+
+@end
+
 @implementation RequestManager
 
 
@@ -43,6 +49,11 @@
     [asiRequest setTimeOutSeconds:30];
     [asiRequest setUseCookiePersistence:NO];
     [asiRequest startAsynchronous];
+    
+}
+
+- (void)sendRequest:(BaseRequestModel *)request unParsh:(BOOL)parsh
+{
     
 }
 
@@ -108,6 +119,9 @@
             [[Model shareModel] showPromptText:[NSString stringWithFormat:@"%@\n错误码%@",[reposneData objectForKey:@"errorMessage"],[reposneData objectForKey:@"errorCode"]] model:YES];
             [_delegate requestFailedWithErrorCode:[reposneData objectForKey:@"errorCode"] withErrorMsg:[reposneData objectForKey:@"errorMessage"]];
         }
+    }else{
+        [[Model shareModel] showPromptText:@"请求失败" model:YES];
+        [_delegate requestFailedWithErrorCode:nil withErrorMsg:nil];
     }
 }
 

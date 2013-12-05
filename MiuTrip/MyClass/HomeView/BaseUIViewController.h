@@ -15,6 +15,7 @@
 #import "BaseRequestModel.h"
 #import "RequestManager.h"
 #import "Common.h"
+#import "Account.h"
 
 
 @class BaseContentView;
