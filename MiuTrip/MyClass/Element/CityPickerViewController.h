@@ -24,6 +24,6 @@
 @protocol CityPickerDelegate <NSObject>
 
 - (void)cityPickerFinished:(CityDTO*)city;
-- (void)pickerCancel;
+- (void)cityPickerCancel;
 
 @end

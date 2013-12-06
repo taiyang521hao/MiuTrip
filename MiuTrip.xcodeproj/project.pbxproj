@@ -155,7 +155,6 @@
 		1279153C183326B700CF94F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1279153A183326B700CF94F4 /* InfoPlist.strings */; };
 		1279153E183326B700CF94F4 /* MiuTripTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1279153D183326B700CF94F4 /* MiuTripTests.m */; };
 		127915571833292700CF94F4 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1279154D1833292700CF94F4 /* DatePickerViewController.m */; };
-		127915581833292700CF94F4 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1279154E1833292700CF94F4 /* DatePickerViewController.xib */; };
 		127915591833292700CF94F4 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127915501833292700CF94F4 /* ImagePickerViewController.m */; };
 		1279155A1833292700CF94F4 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 127915521833292700CF94F4 /* Utils.m */; };
 		1279156018334D1400CF94F4 /* BaseUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1279155F18334D1400CF94F4 /* BaseUIViewController.m */; };
@@ -511,7 +510,6 @@
 		1279153B183326B700CF94F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1279153D183326B700CF94F4 /* MiuTripTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiuTripTests.m; sourceTree = "<group>"; };
 		1279154D1833292700CF94F4 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
-		1279154E1833292700CF94F4 /* DatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		1279154F1833292700CF94F4 /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
 		127915501833292700CF94F4 /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
 		127915511833292700CF94F4 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -1212,7 +1210,6 @@
 			children = (
 				1279155C18332A3100CF94F4 /* DatePickerViewController.h */,
 				1279154D1833292700CF94F4 /* DatePickerViewController.m */,
-				1279154E1833292700CF94F4 /* DatePickerViewController.xib */,
 				1279154F1833292700CF94F4 /* ImagePickerViewController.h */,
 				127915501833292700CF94F4 /* ImagePickerViewController.m */,
 				18573C881849A94800A19D7E /* CityPickerViewController.h */,
@@ -1704,7 +1701,6 @@
 				12350A74183CFC8D00F9E8A7 /* t_career_arrived.png in Resources */,
 				1253D6471835D1E2004B595D /* bg_home_title_btn.png in Resources */,
 				122BD73F18406D2E00BAA9A9 /* voice_btn_press.png in Resources */,
-				127915581833292700CF94F4 /* DatePickerViewController.xib in Resources */,
 				1253D65E1835D1E2004B595D /* cname_add.png in Resources */,
 				123DA433183E0F260031F3F1 /* cell_arrow_up.png in Resources */,
 				1856474E184C65F00031E5D6 /* logo_ns@2x.png in Resources */,
@@ -2092,11 +2088,12 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "MiuTrip/MiuTrip-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/MiuTrip/LIbrary/ASIHttpRequest";
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 arm64 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2116,11 +2113,12 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "MiuTrip/MiuTrip-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/MiuTrip/LIbrary/ASIHttpRequest";
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 arm64 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

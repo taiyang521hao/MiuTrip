@@ -71,9 +71,9 @@
     [[UserDefaults shareUserDefault] setAuthTkn:loginReponse.authTkn];
     HomeViewController *homeView = [[HomeViewController alloc]init];
     [[Model shareModel] showPromptText:@"登陆成功" model:YES];
-    [homeView getUserLoginInfo];
-    TestViewController *testView = [[TestViewController alloc]init];
-    [self pushViewController:testView transitionType:TransitionPush completionHandler:nil];
+//    [homeView getUserLoginInfo];
+//    TestViewController *testView = [[TestViewController alloc]init];
+    [self pushViewController:homeView transitionType:TransitionPush completionHandler:nil];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

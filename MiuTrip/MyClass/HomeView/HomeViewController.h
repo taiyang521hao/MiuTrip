@@ -30,7 +30,7 @@
 
 @end
 
-@interface HomeViewController : BaseUIViewController<HomeCustomBtnDelegate>
+@interface HomeViewController : BaseUIViewController<HomeCustomBtnDelegate,CityPickerDelegate,DatePickerDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) UILabel                   *userName;
 @property (strong, nonatomic) UILabel                   *position;
@@ -68,6 +68,8 @@
 @property (strong, nonatomic) NSString      *year;
 @property (strong, nonatomic) NSString      *monthAndDay;
 @property (strong, nonatomic) NSString      *leftPlaceholder;
+
+//setText       text need format @"yyyy-MM-dd"
 
 @end
 

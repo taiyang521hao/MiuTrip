@@ -14,12 +14,14 @@
 
 @interface CityPickerViewController ()
 
-@property (strong, nonatomic) UILabel               *letterLb;
+@property (strong, nonatomic) UIView                *selectionView;
 @property (strong, nonatomic) UITableView           *theTableView;
 @property (strong, nonatomic) NSMutableDictionary   *dataSource;
 @property (strong, nonatomic) NSMutableArray        *keyArray;
 
 @property (strong, nonatomic) RequestManager    *requestManager;
+
+@property (strong, nonatomic) UILabel               *selectionTitle;
 
 @end
 
@@ -50,13 +52,29 @@
             self.dataSource = [self parshCityData:[UserDefaults shareUserDefault].allCity];
         }
         [_theTableView setFrame:CGRectMake(_theTableView.frame.origin.x, _theTableView.frame.origin.y, _theTableView.frame.size.width, 0)];
-        [_letterLb setFrame:CGRectMake(_letterLb.frame.origin.x, _letterLb.frame.origin.y, _letterLb.frame.size.width, _theTableView.frame.size.height)];
+        if (_selectionView) {
+            [_selectionView removeFromSuperview];
+            _selectionView = nil;
+        }
+        _selectionView = [[UIView alloc]initWithFrame:CGRectMake(controlXLength(_theTableView), _theTableView.frame.origin.y, self.view.frame.size.width - controlXLength(_theTableView), self.view.frame.size.height - 100)];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectionTap:)];
+        [_selectionView addGestureRecognizer:tapGesture];
+        [self.view addSubview:_selectionView];
+        for (int i = 0;i<[_keyArray count];i++) {
+            NSString *key = [_keyArray objectAtIndex:i];
+            
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, _selectionView.frame.size.height * i/[_keyArray count], _selectionView.frame.size.width, _selectionView.frame.size.height/[_keyArray count])];
+            [label setFont:[UIFont systemFontOfSize:14]];
+            [label setTextAlignment:NSTextAlignmentCenter];
+            [label setText:key];
+            [_selectionView addSubview:label];
+        }
+        
         [self.view setHidden:NO];
         [self.view setAlpha:1];
         [UIView animateWithDuration:0.25
                          animations:^{
                              [_theTableView setFrame:CGRectMake(_theTableView.frame.origin.x, _theTableView.frame.origin.y, _theTableView.frame.size.width, self.view.frame.size.height - 100)];
-                             [_letterLb setFrame:CGRectMake(_letterLb.frame.origin.x, _letterLb.frame.origin.y, _letterLb.frame.size.width, _theTableView.frame.size.height)];
                          }completion:^(BOOL finished){
                              [self reloadData];
                          }];
@@ -66,11 +84,59 @@
     
 }
 
+- (void)selectionTap:(UITapGestureRecognizer*)tapGesture
+{
+    NSLog(@"tap");
+    CGPoint point = [tapGesture locationInView:_selectionView];
+    NSInteger index = -1;
+    for (int i = 0; i<[_keyArray count]; i++) {
+        if (point.y >= _selectionView.frame.size.height * i/[_keyArray count] && point.y < _selectionView.frame.size.height * (i + 1)/[_keyArray count]) {
+            index = i;
+            break;
+        }
+    }
+    if (index >= 0) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:index];
+        [_theTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self showSelectionTitle:index];
+    }
+    
+}
+
+- (void)showSelectionTitle:(NSInteger)index
+{
+    if (!_selectionTitle) {
+        _selectionTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 60, 50)];
+        [_selectionTitle setCenter:_theTableView.center];
+        [_selectionTitle setBackgroundColor:color(darkGrayColor)];
+        [_selectionTitle setFont:[UIFont boldSystemFontOfSize:18]];
+        [_selectionTitle setTextAlignment:NSTextAlignmentCenter];
+        [_selectionTitle setHidden:YES];
+    }
+    if (_selectionTitle.superview) {
+        [_selectionTitle removeFromSuperview];
+    }
+    [_selectionTitle setText:[_keyArray objectAtIndex:index]];
+    [self.view addSubview:_selectionTitle];
+    [_selectionTitle setAlpha:1];
+    [_selectionTitle setHidden:NO];
+    [self performSelector:@selector(hiddenSelectionTitle) withObject:nil afterDelay:2.0];
+}
+
+- (void)hiddenSelectionTitle
+{
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         [_selectionTitle setAlpha:0];
+                     }completion:^(BOOL finished){
+                         [_selectionTitle setHidden:YES];
+                     }];
+}
+
 - (void)reloadData
 {
     [self.theTableView reloadData];
-    NSString *str = [_keyArray componentsJoinedByString:@"\n"];
-    [_letterLb setText:str];
+//    NSString *str = [_keyArray componentsJoinedByString:@"\n"];
 }
 
 - (void)getAllCity
@@ -182,10 +248,10 @@
 #pragma mark - view init
 - (void)setSubviewFrame
 {
-    UIImageView *backGroundImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
-    [backGroundImageView setBackgroundColor:color(blackColor)];
-    [backGroundImageView setAlpha:0.35];
-    [self.view addSubview:backGroundImageView];
+    UIView *backgroundView = [[UIView alloc]initWithFrame:self.view.bounds];
+    [backgroundView setBackgroundColor:color(blackColor)];
+    [backgroundView setAlpha:0.35];
+    [self.view addSubview:backgroundView];
     
     _theTableView = [[UITableView alloc]initWithFrame:CGRectMake(30, 50, self.view.frame.size.width - 60, self.view.frame.size.height - 100)];
     [_theTableView setDelegate:self];
@@ -198,17 +264,6 @@
     [self.view.layer setShadowOpacity:1];
     [self.view.layer setShadowRadius:2.5];
     [self.view addSubview:_theTableView];
-    
-    _letterLb = [[UILabel alloc]initWithFrame:CGRectMake(controlXLength(_theTableView), _theTableView.frame.origin.y, self.view.frame.size.width - controlXLength(_theTableView), _theTableView.frame.size.height)];
-    [_letterLb setNumberOfLines:0];
-    [_letterLb setLineBreakMode:NSLineBreakByWordWrapping];
-    [_letterLb setTextAlignment:NSTextAlignmentCenter];
-    [_letterLb setFont:[UIFont systemFontOfSize:15]];
-    [_letterLb setAdjustsFontSizeToFitWidth:YES];
-    [_letterLb setAdjustsLetterSpacingToFitWidth:YES];
-    [_letterLb setMinimumScaleFactor:0.3];
-    [_letterLb setBaselineAdjustment:UIBaselineAdjustmentAlignCenters];
-    [self.view addSubview:_letterLb];
     
     [self.view setHidden:YES];
 }
@@ -237,7 +292,7 @@
                          [self.view setAlpha:0.0];
                      }completion:^(BOOL finished){
                          [self.view setHidden:YES];
-                         [self.delegate pickerCancel];
+                         [self.delegate cityPickerCancel];
                      }];
 }
 

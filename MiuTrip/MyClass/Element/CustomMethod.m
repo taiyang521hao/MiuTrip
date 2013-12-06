@@ -234,7 +234,7 @@
 - (void)setAutoSize:(BOOL)yesOrNo
 {
     [self setAdjustsFontSizeToFitWidth:yesOrNo];
-    [self setAdjustsLetterSpacingToFitWidth:yesOrNo];
+//    [self setAdjustsLetterSpacingToFitWidth:yesOrNo];
     if (yesOrNo) {
         [self setBaselineAdjustment:UIBaselineAdjustmentAlignBaselines];
         [self setMinimumScaleFactor:0.3];
@@ -315,7 +315,7 @@
     [_detailLabel setBackgroundColor:color(clearColor)];
     [_detailLabel setFont:[UIFont systemFontOfSize:12]];
     [_detailLabel setAdjustsFontSizeToFitWidth:YES];
-    [_detailLabel setAdjustsLetterSpacingToFitWidth:YES];
+//    [_detailLabel setAdjustsLetterSpacingToFitWidth:YES];
     [_detailLabel setBaselineAdjustment:UIBaselineAdjustmentAlignBaselines];
     [_detailLabel setMinimumScaleFactor:0.3];
     [self addSubview:_detailLabel];

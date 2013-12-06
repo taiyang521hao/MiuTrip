@@ -10,4 +10,23 @@
 
 @implementation GetNormalFlightsRequest
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _FlightSource = @"Mango";
+    }
+    return self;
+}
+
+- (BaseRequestModel *)initWidthBusinessType:(BusinessType)bussinessType methodName:(NSString *)methodName
+{
+    self = [super initWidthBusinessType:bussinessType methodName:methodName];
+    if (self) {
+        _FlightSource = @"TongCheng";
+        _FlightWay    = @"S";
+    }
+    return self;
+}
+
 @end
