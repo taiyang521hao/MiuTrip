@@ -25,6 +25,8 @@
     if (self) {
         _FlightSource = @"TongCheng";
         _FlightWay    = @"S";
+        _PassengerType = @"ADU";
+        _SendTicketCity = @"";
     }
     return self;
 }

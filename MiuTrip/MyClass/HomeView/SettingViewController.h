@@ -8,6 +8,6 @@
 
 #import "BaseUIViewController.h"
 
-@interface SettingViewController : BaseUIViewController
+@interface SettingViewController : BaseUIViewController<CityPickerDelegate>
 
 @end

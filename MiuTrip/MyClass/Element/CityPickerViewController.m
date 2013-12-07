@@ -72,6 +72,7 @@
         
         [self.view setHidden:NO];
         [self.view setAlpha:1];
+        [self.view.superview bringSubviewToFront:self.view];
         [UIView animateWithDuration:0.25
                          animations:^{
                              [_theTableView setFrame:CGRectMake(_theTableView.frame.origin.x, _theTableView.frame.origin.y, _theTableView.frame.size.width, self.view.frame.size.height - 100)];
@@ -188,9 +189,9 @@
     for (NSString *key in _keyArray) {
         NSMutableArray *array = [dict objectForKey:key];
         [array sortedArrayUsingComparator:^NSComparisonResult(CityDTO *city1, CityDTO *city2){
-            if ([[city1.CityCode uppercaseString] characterAtIndex:0] < [[city2.CityCode uppercaseString] characterAtIndex:0]) {
+            if ([city1.CityNameEn uppercaseString] < [city2.CityNameEn uppercaseString]) {
                 return NSOrderedAscending;
-            }else if ([[city1.CityCode uppercaseString] characterAtIndex:0] > [[city2.CityCode uppercaseString] characterAtIndex:0]){
+            }else if ([city1.CityNameEn uppercaseString] > [city2.CityNameEn uppercaseString]){
                 return NSOrderedDescending;
             }else{
                 return NSOrderedSame;

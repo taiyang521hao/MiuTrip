@@ -12,11 +12,14 @@
 
 @property (strong, nonatomic) NSMutableDictionary           *switchControls;
 
-@property (strong, nonatomic) UILabel                       *startCityField;
-@property (strong, nonatomic) UILabel                       *goalCityField;
-@property (strong, nonatomic) UILabel                       *priceRangeField;
-@property (strong, nonatomic) UILabel                       *postTypeField;
-@property (strong, nonatomic) UILabel                       *postAddressField;
+@property (strong, nonatomic) UITextField                   *startCityField;
+@property (strong, nonatomic) UITextField                   *goalCityField;
+@property (strong, nonatomic) UITextField                   *priceRangeField;
+@property (strong, nonatomic) UITextField                   *postTypeField;
+@property (strong, nonatomic) UITextField                   *postAddressField;
+
+@property (strong, nonatomic) CityPickerViewController      *cityPickerView;
+@property (strong, nonatomic) UIControl                     *responseControl;
 
 @end
 
@@ -37,6 +40,9 @@
         [self.contentView setHidden:NO];
         _switchControls = [NSMutableDictionary dictionary];
         [self setSubviewFrame];
+        _cityPickerView = [[CityPickerViewController alloc]init];
+        [_cityPickerView setDelegate:self];
+        [self.view addSubview:_cityPickerView.view];
     }
     return self;
 }
@@ -48,7 +54,55 @@
 
 - (void)pressItem:(UIButton*)sender
 {
+    NSLog(@"sender tag = %d",sender.tag);
+    switch (sender.tag) {
+        case 400:{
+            _responseControl = _startCityField;
+            [_cityPickerView fire];
+            break;
+        }case 401:{
+            _responseControl = _goalCityField;
+            [_cityPickerView fire];
+            break;
+        }case 402:{
+            
+            break;
+        }case 403:{
+            
+            break;
+        }case 404:{
+            
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+#pragma mark - city picker handle
+- (void)cityPickerFinished:(CityDTO*)city
+{
+    [self control:_responseControl setTitle:city.CityName];
+    if (_responseControl == _startCityField) {
+        [UserDefaults shareUserDefault].startCity = city.CityName;
+    }else if (_responseControl == _goalCityField){
+        [UserDefaults shareUserDefault].goalCity  = city.CityName;
+    }
+}
+
+- (void)cityPickerCancel
+{
     
+}
+
+- (void)control:(UIControl*)control setTitle:(NSString*)title
+{
+    if ([control isKindOfClass:[UILabel class]] || [control isKindOfClass:[UITextField class]] || [control isKindOfClass:[UITextView class]]) {
+        [control performSelector:@selector(setText:) withObject:title];
+    }else if ([control isKindOfClass:[UIButton class]]){
+        UIButton *btnControl = (UIButton*)control;
+        [btnControl setTitle:title forState:UIControlStateNormal];
+    }
 }
 
 - (void)selectReserveGoal:(UIButton*)sender
@@ -194,9 +248,11 @@
     [startCityLabel setText:@"出发城市"];
     [startCityLabel setAutoSize:YES];
     [preferBGView addSubview:startCityLabel];
-    _startCityField = [[UILabel alloc]initWithFrame:CGRectMake(controlXLength(startCityLabel) + 20, startCityLabel.frame.origin.y, preferBGView.frame.size.width - controlXLength(startCityLabel) - 20, startCityLabel.frame.size.height)];
+    _startCityField = [[UITextField alloc]initWithFrame:CGRectMake(controlXLength(startCityLabel) + 20, startCityLabel.frame.origin.y, preferBGView.frame.size.width - controlXLength(startCityLabel) - 20, startCityLabel.frame.size.height)];
     [_startCityField setBackgroundColor:color(clearColor)];
-    [_startCityField setText:@"选择出发城市"];
+    [_startCityField setPlaceholder:@"选择出发城市"];
+    [_startCityField setText:[UserDefaults shareUserDefault].startCity];
+    [_startCityField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [preferBGView addSubview:_startCityField];
     UIButton *startCityBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [startCityBtn setBackgroundColor:color(clearColor)];
@@ -212,9 +268,11 @@
     [goalCityLabel setText:@"入住城市"];
     [goalCityLabel setAutoSize:YES];
     [preferBGView addSubview:goalCityLabel];
-    _goalCityField = [[UILabel alloc]initWithFrame:CGRectMake(_startCityField.frame.origin.x, controlYLength(_startCityField), _startCityField.frame.size.width, _startCityField.frame.size.height)];
+    _goalCityField = [[UITextField alloc]initWithFrame:CGRectMake(_startCityField.frame.origin.x, controlYLength(_startCityField), _startCityField.frame.size.width, _startCityField.frame.size.height)];
     [_goalCityField setBackgroundColor:color(clearColor)];
-    [_goalCityField setText:@"选择入住城市"];
+    [_goalCityField setPlaceholder:@"选择入住城市"];
+    [_goalCityField setText:[UserDefaults shareUserDefault].goalCity];
+    [_goalCityField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [preferBGView addSubview:_goalCityField];
     UIButton *goalCityBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [goalCityBtn setBackgroundColor:color(clearColor)];
@@ -230,9 +288,11 @@
     [priceRangeLabel setText:@"价格范围"];
     [priceRangeLabel setAutoSize:YES];
     [preferBGView addSubview:priceRangeLabel];
-    _priceRangeField = [[UILabel alloc]initWithFrame:CGRectMake(_startCityField.frame.origin.x, controlYLength(_goalCityField), _startCityField.frame.size.width, _startCityField.frame.size.height)];
+    _priceRangeField = [[UITextField alloc]initWithFrame:CGRectMake(_startCityField.frame.origin.x, controlYLength(_goalCityField), _startCityField.frame.size.width, _startCityField.frame.size.height)];
     [_priceRangeField setBackgroundColor:color(clearColor)];
-    [_priceRangeField setText:@"0"];
+    [_priceRangeField setPlaceholder:@"0"];
+    [_priceRangeField setText:[[UserDefaults shareUserDefault] getPriceRange]];
+    [_priceRangeField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [preferBGView addSubview:_priceRangeField];
     UIButton *priceRangeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [priceRangeBtn setBackgroundColor:color(clearColor)];
@@ -248,9 +308,11 @@
     [postTypeLabel setText:@"配送方式"];
     [postTypeLabel setAutoSize:YES];
     [preferBGView addSubview:postTypeLabel];
-    _postTypeField = [[UILabel alloc]initWithFrame:CGRectMake(_startCityField.frame.origin.x, controlYLength(_priceRangeField), _startCityField.frame.size.width, _startCityField.frame.size.height)];
+    _postTypeField = [[UITextField alloc]initWithFrame:CGRectMake(_startCityField.frame.origin.x, controlYLength(_priceRangeField), _startCityField.frame.size.width, _startCityField.frame.size.height)];
     [_postTypeField setBackgroundColor:color(clearColor)];
-    [_postTypeField setText:@"不需要行程单"];
+    [_postTypeField setPlaceholder:@"不需要行程单"];
+    [_postTypeField setText:[[UserDefaults shareUserDefault] getPostType]];
+    [_postTypeField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [preferBGView addSubview:_postTypeField];
     UIButton *postTypeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [postTypeBtn setBackgroundColor:color(clearColor)];
@@ -266,9 +328,11 @@
     [postAddressLabel setText:@"邮寄地址"];
     [postAddressLabel setAutoSize:YES];
     [preferBGView addSubview:postAddressLabel];
-    _postAddressField = [[UILabel alloc]initWithFrame:CGRectMake(_startCityField.frame.origin.x, controlYLength(_postTypeField), _startCityField.frame.size.width, _startCityField.frame.size.height)];
+    _postAddressField = [[UITextField alloc]initWithFrame:CGRectMake(_startCityField.frame.origin.x, controlYLength(_postTypeField), _startCityField.frame.size.width, _startCityField.frame.size.height)];
     [_postAddressField setBackgroundColor:color(clearColor)];
-    [_postAddressField setText:@"上海市"];
+    [_postAddressField setPlaceholder:@"上海市"];
+    [_postAddressField setText:[UserDefaults shareUserDefault].postAddress];
+    [_postAddressField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [preferBGView addSubview:_postAddressField];
     UIButton *postAddressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [postAddressBtn setBackgroundColor:color(clearColor)];

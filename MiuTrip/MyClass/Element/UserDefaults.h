@@ -48,4 +48,7 @@
 
 - (void)clearDefaults;
 
+- (NSString *)getPriceRange;
+- (NSString *)getPostType;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "TestViewController.h"
 #import "CityPickerViewController.h"
+#import "SqliteManager.h"
 
 @interface TestViewController ()
 
@@ -42,11 +43,7 @@
 
 - (void)pressTestBtn:(UIButton*)sender
 {
-    if (!_cityPickerView) {
-        _cityPickerView = [[CityPickerViewController alloc]init];
-        [self.view addSubview:_cityPickerView.view];
-    }
-    [_cityPickerView fire];
+    [[SqliteManager shareSqliteManager]mappingCityInfo];
 }
 
 - (void)requestDone:(BaseResponseModel *)response

@@ -84,6 +84,64 @@ static UserDefaults *shareUserDefault;
     }
 }
 
+- (NSString *)getPriceRange
+{
+    //1:不限  2:0~150  3:151~300  4:301~450  5:451~600  6:600以上
+    NSString *range = nil;
+    switch (priceRange) {
+        case 1:
+            range = @"不限";
+            break;
+        case 2:
+            range = @"0~150";
+            break;
+        case 3:
+            range = @"151~300";
+            break;
+        case 4:
+            range = @"301~450";
+            break;
+        case 5:
+            range = @"451~600";
+            break;
+        case 6:
+            range = @"600以上";
+            break;
+        default:
+            range = @"不限";
+            break;
+    }
+    return range;
+}
+
+- (NSString *)getPostType
+{
+    //0:不需要行程单 1:平邮 6.0元 2:快递 10.0元 3:EMS 10.0元 4:快递到付 10.0元
+    NSString *getPostType = nil;
+    switch (priceRange) {
+        case 0:
+            getPostType = @"不需要行程单";
+            break;
+        case 1:
+            getPostType = @"平邮 6.0元";
+            break;
+        case 2:
+            getPostType = @"快递 10.0元";
+            break;
+        case 3:
+            getPostType = @"EMS 10.0元";
+            break;
+        case 4:
+            getPostType = @"快递到付 10.0元";
+            break;
+        
+        default:
+            getPostType = @"不需要行程单";
+            break;
+    }
+    return getPostType;
+}
+
 - (BOOL)autoLogin
 {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"autoLogin"] boolValue];

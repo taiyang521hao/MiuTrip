@@ -89,6 +89,7 @@
     [_pickerView setFrame:CGRectMake(0, self.view.frame.size.height, _pickerView.frame.size.width, _pickerView.frame.size.height)];
     [self.view addSubview:_pickerView];
     [self.view setHidden:NO];
+    [self.view.superview bringSubviewToFront:self.view];
     [UIView animateWithDuration:DatePickerAnimationDuration
                      animations:^{
                          [_pickerView setFrame:CGRectMake(_pickerView.frame.origin.x, self.view.frame.size.height - _pickerView.frame.size.height, _pickerView.frame.size.width, _pickerView.frame.size.height)];

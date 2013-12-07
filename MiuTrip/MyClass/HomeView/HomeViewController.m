@@ -56,6 +56,9 @@
 @property (strong, nonatomic) UITextField           *passengerNumTf;        //乘客数   cover btn tag  706
 @property (strong, nonatomic) UITextField           *seatLevelTf;           //舱位等级 cover btn tag  707
 
+@property (strong, nonatomic) CityDTO               *airOrderFromCity;           //出发城市
+@property (strong, nonatomic) CityDTO               *airOrderToCity;             //到达城市
+
 @property (assign, nonatomic) BOOL                  moreViewUnfold;
 
 //done btn tag  750 ; voice btn tag 751
@@ -153,7 +156,13 @@
 #pragma mark - city picker handle
 - (void)cityPickerFinished:(CityDTO *)city
 {
+    NSLog(@"city name = %@,city id = %@",city.CityName,city.CityID);
     [self control:_responseControl setTitle:city.CityName];
+    if (_responseControl == _fromCity) {
+        _airOrderFromCity = city;
+    }else if (_responseControl == _toCity){
+        _airOrderToCity   = city;
+    }
 }
 
 - (void)cityPickerCancel
@@ -1099,7 +1108,7 @@
 //    [self pushViewController:airListView transitionType:TransitionPush completionHandler:Nil];
     switch (sender.tag) {
         case 750:{
-            GetNormalFlightsRequest *request = [self getRequest];
+            GetNormalFlightsRequest *request = [self getNormalFlightsRequest];
             [self.requestManager sendRequest:request];
             
             break;
@@ -1112,12 +1121,14 @@
     }
 }
 
-- (GetNormalFlightsRequest*)getRequest
+- (GetNormalFlightsRequest*)getNormalFlightsRequest
 {
     GetNormalFlightsRequest *request = [[GetNormalFlightsRequest alloc]initWidthBusinessType:BUSINESS_FLIGHT methodName:@"GetNormalFlights"];
-    [request setDepartCity:_fromCity.titleLabel.text];
-    [request setArriveCity:_toCity.titleLabel.text];
-    [request setDepartDate:_startDateTf.text];
+    [request setDepartCity:@"sha"];
+    [request setArriveCity:@"bjs"];
+    NSString *departDate = [Utils stringWithDate:[Utils dateWithString:_startDateTf.year withFormat:@"yyyy年"] withFormat:@"yyyy"];
+    departDate = [departDate stringByAppendingFormat:@"-%@",[Utils stringWithDate:[Utils dateWithString:_startDateTf.text withFormat:@"MM月dd日"] withFormat:@"MM-dd"]];
+    [request setDepartDate:departDate];
     
     return request;
 }

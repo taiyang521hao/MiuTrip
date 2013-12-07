@@ -303,6 +303,16 @@
 		18573C8A1849A94800A19D7E /* CityPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18573C891849A94800A19D7E /* CityPickerViewController.m */; };
 		18621389185019A500134C08 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18621388185019A500134C08 /* TestViewController.m */; };
 		1862138D185026AC00134C08 /* GetCorpCostResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862138C185026AC00134C08 /* GetCorpCostResponse.m */; };
+		1864C71C1852CC660051B097 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864C70E1852CC660051B097 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1864C71D1852CC660051B097 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864C7101852CC660051B097 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1864C71E1852CC660051B097 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864C7121852CC660051B097 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1864C71F1852CC660051B097 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864C7141852CC660051B097 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1864C7201852CC660051B097 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864C7161852CC660051B097 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1864C7211852CC660051B097 /* LKDaoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864C7181852CC660051B097 /* LKDaoBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1864C7221852CC660051B097 /* SandboxFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864C71B1852CC660051B097 /* SandboxFile.m */; };
+		1864C7241852CC800051B097 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1864C7231852CC800051B097 /* libsqlite3.dylib */; };
+		1864C76C1852D98F0051B097 /* SqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864C76B1852D98F0051B097 /* SqliteManager.m */; };
+		1864C76E1852DA7D0051B097 /* miutrip.db in Resources */ = {isa = PBXBuildFile; fileRef = 1864C76D1852DA7D0051B097 /* miutrip.db */; };
 		187CBD1218485D2D00F25BD7 /* air_arr_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 187CBD0E18485D2D00F25BD7 /* air_arr_icon.png */; };
 		187CBD1318485D2D00F25BD7 /* air_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 187CBD0F18485D2D00F25BD7 /* air_arrow.png */; };
 		187CBD1418485D2D00F25BD7 /* air_exchange.png in Resources */ = {isa = PBXBuildFile; fileRef = 187CBD1018485D2D00F25BD7 /* air_exchange.png */; };
@@ -772,6 +782,24 @@
 		1862138A1850253900134C08 /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		1862138B185026AC00134C08 /* GetCorpCostResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCorpCostResponse.h; sourceTree = "<group>"; };
 		1862138C185026AC00134C08 /* GetCorpCostResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCorpCostResponse.m; sourceTree = "<group>"; };
+		1864C70D1852CC660051B097 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		1864C70E1852CC660051B097 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		1864C70F1852CC660051B097 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		1864C7101852CC660051B097 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		1864C7111852CC660051B097 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		1864C7121852CC660051B097 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		1864C7131852CC660051B097 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		1864C7141852CC660051B097 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		1864C7151852CC660051B097 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		1864C7161852CC660051B097 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		1864C7171852CC660051B097 /* LKDaoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKDaoBase.h; sourceTree = "<group>"; };
+		1864C7181852CC660051B097 /* LKDaoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKDaoBase.m; sourceTree = "<group>"; };
+		1864C71A1852CC660051B097 /* SandboxFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SandboxFile.h; sourceTree = "<group>"; };
+		1864C71B1852CC660051B097 /* SandboxFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SandboxFile.m; sourceTree = "<group>"; };
+		1864C7231852CC800051B097 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		1864C76A1852D98F0051B097 /* SqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteManager.h; sourceTree = "<group>"; };
+		1864C76B1852D98F0051B097 /* SqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteManager.m; sourceTree = "<group>"; };
+		1864C76D1852DA7D0051B097 /* miutrip.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = miutrip.db; sourceTree = "<group>"; };
 		187CBD0E18485D2D00F25BD7 /* air_arr_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air_arr_icon.png; sourceTree = "<group>"; };
 		187CBD0F18485D2D00F25BD7 /* air_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air_arrow.png; sourceTree = "<group>"; };
 		187CBD1018485D2D00F25BD7 /* air_exchange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air_exchange.png; sourceTree = "<group>"; };
@@ -793,6 +821,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1864C7241852CC800051B097 /* libsqlite3.dylib in Frameworks */,
 				18B47368184731AB003FF7AD /* libicucore.dylib in Frameworks */,
 				12478A0618363B4000AA0083 /* libz.dylib in Frameworks */,
 				1279151B183326B700CF94F4 /* CoreGraphics.framework in Frameworks */,
@@ -1123,6 +1152,7 @@
 		12791517183326B700CF94F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1864C7231852CC800051B097 /* libsqlite3.dylib */,
 				18B47367184731AB003FF7AD /* libicucore.dylib */,
 				12478A0518363B4000AA0083 /* libz.dylib */,
 				12478A0318363B2F00AA0083 /* MobileCoreServices.framework */,
@@ -1179,6 +1209,8 @@
 		1279154A1833292700CF94F4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				1864C70C1852CC660051B097 /* FMDatabase */,
+				1864C7191852CC660051B097 /* Sandbox */,
 				18B47369184731DC003FF7AD /* RegexKitLite */,
 				124789A01836363000AA0083 /* ASIHttpRequest */,
 				124789B81836363000AA0083 /* EGORefireshTableHeader */,
@@ -1224,6 +1256,8 @@
 				B5A249211845F63A005BB217 /* URLHelper.m */,
 				18535CBA184F245E007FABF5 /* UserDefaults.h */,
 				18535CBB184F245E007FABF5 /* UserDefaults.m */,
+				1864C76A1852D98F0051B097 /* SqliteManager.h */,
+				1864C76B1852D98F0051B097 /* SqliteManager.m */,
 			);
 			path = Element;
 			sourceTree = "<group>";
@@ -1243,6 +1277,7 @@
 		127915561833292700CF94F4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1864C76D1852DA7D0051B097 /* miutrip.db */,
 				187CBD1918487E7900F25BD7 /* arrow.png */,
 				1253D5F01835D1E1004B595D /* bottombar.png */,
 				1253D5F11835D1E1004B595D /* home_bg.png */,
@@ -1388,6 +1423,34 @@
 				18564739184C65F00031E5D6 /* logo_zh@2x.png */,
 			);
 			path = AirCompanyLogo;
+			sourceTree = "<group>";
+		};
+		1864C70C1852CC660051B097 /* FMDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				1864C70D1852CC660051B097 /* FMDatabase.h */,
+				1864C70E1852CC660051B097 /* FMDatabase.m */,
+				1864C70F1852CC660051B097 /* FMDatabaseAdditions.h */,
+				1864C7101852CC660051B097 /* FMDatabaseAdditions.m */,
+				1864C7111852CC660051B097 /* FMDatabasePool.h */,
+				1864C7121852CC660051B097 /* FMDatabasePool.m */,
+				1864C7131852CC660051B097 /* FMDatabaseQueue.h */,
+				1864C7141852CC660051B097 /* FMDatabaseQueue.m */,
+				1864C7151852CC660051B097 /* FMResultSet.h */,
+				1864C7161852CC660051B097 /* FMResultSet.m */,
+				1864C7171852CC660051B097 /* LKDaoBase.h */,
+				1864C7181852CC660051B097 /* LKDaoBase.m */,
+			);
+			path = FMDatabase;
+			sourceTree = "<group>";
+		};
+		1864C7191852CC660051B097 /* Sandbox */ = {
+			isa = PBXGroup;
+			children = (
+				1864C71A1852CC660051B097 /* SandboxFile.h */,
+				1864C71B1852CC660051B097 /* SandboxFile.m */,
+			);
+			path = Sandbox;
 			sourceTree = "<group>";
 		};
 		18B47369184731DC003FF7AD /* RegexKitLite */ = {
@@ -1699,6 +1762,7 @@
 				12350A7D183D0B8E00F9E8A7 /* t_item_bg.png in Resources */,
 				18564742184C65F00031E5D6 /* logo_eu@2x.png in Resources */,
 				12350A74183CFC8D00F9E8A7 /* t_career_arrived.png in Resources */,
+				1864C76E1852DA7D0051B097 /* miutrip.db in Resources */,
 				1253D6471835D1E2004B595D /* bg_home_title_btn.png in Resources */,
 				122BD73F18406D2E00BAA9A9 /* voice_btn_press.png in Resources */,
 				1253D65E1835D1E2004B595D /* cname_add.png in Resources */,
@@ -1823,6 +1887,7 @@
 				18535C9E184F1F0B007FABF5 /* SaveSMSRequest.m in Sources */,
 				18535C16184EF3C1007FABF5 /* GetLoginUserInfoRequest.m in Sources */,
 				124789E21836363100AA0083 /* ASIDataDecompressor.m in Sources */,
+				1864C71E1852CC660051B097 /* FMDatabasePool.m in Sources */,
 				18535B65184EC744007FABF5 /* OrderFillInViewController.m in Sources */,
 				18535CB6184F2291007FABF5 /* GetDistrictsRequest.m in Sources */,
 				18535C1A184EF3C1007FABF5 /* GetTravelLifeInfoRequest.m in Sources */,
@@ -1871,6 +1936,7 @@
 				18535BA7184EF374007FABF5 /* HotelOrderDetail.m in Sources */,
 				1253D4F71835C324004B595D /* CommonlyNameViewController.m in Sources */,
 				18535BA3184EF374007FABF5 /* CorpStaffDTO.m in Sources */,
+				1864C7201852CC660051B097 /* FMResultSet.m in Sources */,
 				18535C0A184EF3C1007FABF5 /* GetCorpInfoRequest.m in Sources */,
 				18535CB3184F223B007FABF5 /* GetCityCityCantonAndSectionsResponse.m in Sources */,
 				124789E71836363100AA0083 /* ASINetworkQueue.m in Sources */,
@@ -1897,6 +1963,8 @@
 				18535C59184F0B07007FABF5 /* GetNormalFlightsResponse.m in Sources */,
 				18621389185019A500134C08 /* TestViewController.m in Sources */,
 				18535C13184EF3C1007FABF5 /* GetCorpStaffResponse.m in Sources */,
+				1864C71D1852CC660051B097 /* FMDatabaseAdditions.m in Sources */,
+				1864C7211852CC660051B097 /* LKDaoBase.m in Sources */,
 				18535CA7184F20A3007FABF5 /* SendSMSResponse.m in Sources */,
 				18535CA4184F2093007FABF5 /* SendSMSRequest.m in Sources */,
 				18535C0E184EF3C1007FABF5 /* GetCorpPolicyRequest.m in Sources */,
@@ -1917,6 +1985,7 @@
 				18535CA1184F1F16007FABF5 /* SaveSMSResponse.m in Sources */,
 				18535BA8184EF374007FABF5 /* HotelOrderDetailCell.m in Sources */,
 				124789E91836363100AA0083 /* EGORefreshTableHeaderView.m in Sources */,
+				1864C71F1852CC660051B097 /* FMDatabaseQueue.m in Sources */,
 				18535BA1184EF374007FABF5 /* CorpPolicyDTO.m in Sources */,
 				18535C74184F1593007FABF5 /* GetAllProvincesRequest.m in Sources */,
 				18535C0C184EF3C1007FABF5 /* GetCorpNameByMumberUIDRequest.m in Sources */,
@@ -1929,6 +1998,7 @@
 				127915591833292700CF94F4 /* ImagePickerViewController.m in Sources */,
 				18535B66184EC744007FABF5 /* OrderResultViewController.m in Sources */,
 				1279156018334D1400CF94F4 /* BaseUIViewController.m in Sources */,
+				1864C71C1852CC660051B097 /* FMDatabase.m in Sources */,
 				18535CAD184F21B1007FABF5 /* GetSectionsByCityIdResponse.m in Sources */,
 				18535C1D184EF3C1007FABF5 /* LogoutResponse.m in Sources */,
 				18535C19184EF3C1007FABF5 /* GetMemberDeliverListResponse.m in Sources */,
@@ -1939,6 +2009,7 @@
 				18B4736C184731DC003FF7AD /* RegexKitLite.m in Sources */,
 				12835DA7183DB39500D97422 /* HotelAndAirOrderViewController.m in Sources */,
 				18535C92184F1AC0007FABF5 /* GetAllCityRequest.m in Sources */,
+				1864C7221852CC660051B097 /* SandboxFile.m in Sources */,
 				124789FE1836363100AA0083 /* SBJsonWriter.m in Sources */,
 				18535C6B184F13B7007FABF5 /* GetCityByNameResponse.m in Sources */,
 				124789E31836363100AA0083 /* ASIDownloadCache.m in Sources */,
@@ -1954,6 +2025,7 @@
 				18535C5F184F0F26007FABF5 /* GetProvinceByIDResponse.m in Sources */,
 				124789E51836363100AA0083 /* ASIHTTPRequest.m in Sources */,
 				124789F41836363100AA0083 /* SBJsonParser.m in Sources */,
+				1864C76C1852D98F0051B097 /* SqliteManager.m in Sources */,
 				12350A7B183CFD5A00F9E8A7 /* TripCareerViewController.m in Sources */,
 				124789E61836363100AA0083 /* ASIInputStream.m in Sources */,
 				18535B9E184EF374007FABF5 /* BookPassengersDTO.m in Sources */,
